@@ -10,9 +10,15 @@ Trigger: user asks to 整理/组织/归位 the skill library, or anything touchi
 ## Architecture (verify with `git log` before trusting any doc)
 
 - `~/.agents/skills/` — SSOT 真身. Real skill content with Hermes category nesting (`writing/humanizer`, `software-development/<name>`). Git repo (mrtsels/agents-skills). **Since 2026-08-06: tracks ALL skill content (1200+ files)** — the old ignore-all+allowlist mode is retired. `.gitignore` now carries explicit exclusions only (system junk, nested `.git/`, sensitive dirs/files). Stand-in symlinks tracked automatically (mode 120000). See `references/pii-credential-gate.md` for the mandatory pre-commit privacy sweep.
-- `~/.hermes/skills/` — pure symlink farm → `.agents`. Category dirs are real shells holding deep-adaptive relative links (`../../../.agents/skills/<cat>/<name>`); top-level skills use `../../.agents/skills/<name>`. No real skill content (only `.archive/`, `.hub/`, curator state).
-- `~/.claude/skills/` — symlink farm → `.agents` (flat names; categorized skills link to their category path, e.g. `../../.agents/skills/productivity/docx`).
+- `~/.hermes/skills/` — **SINCE 2026-08-06 EVENING: NO symlink farm anymore.** Hermes loads the SSOT directly via `skills.external_dirs: [/Users/minimx/.agents/skills]` in `~/.hermes/config.yaml`. The dir now holds only Hermes state (`.archive/`, `.hub/`, `.curator_*`, `.usage.json`, `.bundled_manifest`). No per-skill symlinks to maintain — moving/renaming skills in SSOT is instantly reflected (no farm rebuild).
+- `~/.claude/skills/` — symlink farm → `.agents` (Claude Code has no external_dirs; flat names → `../../.agents/skills/<cat>/<name>`; categorized skills link to their category path, e.g. `../../.agents/skills/productivity/docx`). **Must be rebuilt manually after any move.**
 - Pre-flip layout (real content in `.hermes`, stand-ins in `.agents`) is OBSOLETE. Older skills may still describe it — cross-check the filesystem and `git log` before acting on them.
+- `hermes config set skills.external_dirs '["..."]'` writes a JSON STRING, not a YAML list — the parser rejects it (path with quotes fails `is_dir()`). Edit config.yaml directly to the YAML list form:
+  ```yaml
+  skills:
+    external_dirs:
+      - /Users/minimx/.agents/skills
+  ```
 
 ## skill_manage (agent tool) limitations — verified 2026-08-06
 
