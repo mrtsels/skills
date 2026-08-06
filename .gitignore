@@ -1,4 +1,4 @@
-# Ignore everything except the manifest files, skill stand-ins (symlinks), and latex-skills index
+# Ignore everything except the manifest files and skill stand-ins (symlinks)
 *
 !.gitignore
 !README.md
@@ -20,6 +20,7 @@
 !install-binary-from-github-releases
 !install-skill-from-github
 !jupyter-live-kernel
+!latex-skills
 !lecture-notes
 !markdown-math
 !meeting-notes
@@ -53,8 +54,3 @@
 !wechat-push-message
 !writing-plans
 !zlib-ebook-download
-
-# latex-skills aggregate: index file tracked, sub-skills ignored
-!latex-skills/
-latex-skills/*
-!latex-skills/SKILL.md
