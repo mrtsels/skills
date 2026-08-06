@@ -1,10 +1,10 @@
 # Skills Manifest
 
-SSOT 目录 `~/.agents/skills/` 的 skill 清单（共 210 个）。
+SSOT 目录 `~/.agents/skills/` 的 skill 清单（共 263 个，含 symlink 替身）。
 Skill 内容不入库（见 .gitignore），仅维护清单。
 
 - 生成时间: 2026-08-06
-- 更新方式: `ls -d */ | sed 's|/$||' | sort > skills-manifest.md`
+- 更新方式: `ls -d */ 2>/dev/null | sed 's|/$||'; ls -l | grep '^l' | awk '{print $9}' | sort -u`
 
 ## Skills
 
@@ -33,6 +33,7 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - apple-notes
 - apple-reminders
 - architecture-design-guide
+- architecture-diagram
 - arxiv-api
 - arxiv-batch-reporting
 - arxiv-cli-tools
@@ -45,6 +46,7 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - automated-review-guide
 - automation-skills
 - autonomous-agents-papers-guide
+- bash-cli-patterns
 - bayesian-statistics-guide
 - beamer-presentation-guide
 - best-practices
@@ -70,6 +72,7 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - conference-paper-template
 - conference-proceedings-guide
 - consulting-problem-solving
+- cron-agent-flow
 - cs-skills
 - csv-data-analyzer
 - d3-visualization-guide
@@ -80,6 +83,8 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - database-comparison-guide
 - datagen-research-guide
 - dataset-finder-guide
+- de-ai-ify-code
+- de-ai-ify-writing
 - deep-learning-papers-guide
 - deep-research-skills
 - deep-searcher-guide
@@ -88,14 +93,19 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - diagram-skills
 - discussion-writing-guide
 - distributed-systems-guide
+- document-format-conversion
 - document-skills
 - docx
+- docx-content-patching
+- dynamic-workflow
 - ego-browser
+- excalidraw
 - find-skills
 - fitness-consultation
 - full-output-enforcement
 - fulltext-skills
 - gaussian-splatting-papers-guide
+- github
 - github-kb
 - google-scholar-guide
 - google-scholar-scraper
@@ -106,22 +116,32 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - graphical-abstract-guide
 - graphify
 - graphiti-guide
+- grounded-citations
 - h-index-guide
 - handwriting-recognition-guide
+- hermes-desktop-plugins
 - hermes-for-agents
+- hermes-themes
 - high-end-visual-design
+- holographic-memory-migration
 - huggingface-api
 - huggingface-inference-guide
 - humanities-skills
+- humanizer
 - image-to-code
 - imagegen-frontend-mobile
 - imagegen-frontend-web
 - industrial-brutalist-ui
+- install-agent-cli-tool
+- install-binary-from-github-releases
+- install-skill-from-github
 - json-data-visualizer
+- jupyter-live-kernel
 - jupyter-notebook-guide
 - knowledge-graph-construction
 - knowledge-graph-skills
 - large-document-reader
+- latex-debugging
 - latex-drawing-collection
 - latex-drawing-guide
 - latex-ecosystem-guide
@@ -130,23 +150,28 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - latex-templates-collection
 - latex-translation-guide
 - latte-review-guide
+- lecture-notes
 - linear-algebra-applications
 - llm-aiops-guide
 - llm-evaluation-guide
 - llm-from-scratch-guide
 - llm-scientific-discovery-guide
 - markdown-academic-guide
+- markdown-math
 - market-analysis-guide
 - math-skills
 - math-typesetting-guide
 - md-to-pdf-academic
 - meeting-intelligence
+- meeting-notes
 - meeting-to-tasks
+- mermaid-diagrams
 - minimalist-ui
 - ml-experiment-tracker
 - ml-paper-writing
 - ml-pipeline-guide
 - modeling-strategy-guide
+- native-mcp
 - nlp-toolkit-guide
 - npcpy-research-guide
 - numerical-methods-guide
@@ -158,6 +183,7 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - ontology-design-guide
 - open-access-guide
 - open-access-mining-guide
+- open-computer-use-mcp
 - open-researcher-guide
 - open-science-guide
 - overleaf-cli-guide
@@ -175,11 +201,17 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - pdf-convert-to-image
 - pdf-extraction-guide
 - pdf-math-translate-guide
+- pdf-records-extraction
+- pdf-to-readable-markdown
+- petdex
 - playwright-performance-optimization
 - power-analysis-guide
+- powerpoint
 - pptx
+- project-handover-documentation
 - publication-figures-guide
 - python-causality-guide
+- python-code-style
 - python-dataviz-guide
 - python-reproducibility-guide
 - pytorch-guide
@@ -187,6 +219,8 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - quantitative-finance-guide
 - quantum-computing-guide
 - redesign-existing-projects
+- repo-documentation
+- repository-cleanup
 - repository-harvesting-guide
 - research-paper-writer
 - research-workflow-automation
@@ -194,16 +228,35 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - responsible-ai-guide
 - roi-calculator
 - saas-replacement-planner
+- scanned-pdf-ocr
 - search-skills
+- simplified-technical-english
+- sketch
 - sow-generator
+- spike
+- spring-logging
+- sql-seed-maintenance
 - stitch-design-taste
+- structured-research-report
 - summarize-slides
+- svg-from-pdf-figure
+- systematic-debugging
+- technical-research-report
 - templates-skills
 - tensorflow-guide
+- test-driven-development
 - thesis-writing-guide
+- training-pipeline-debugging
 - transformer-architecture-guide
+- tui-widgets
+- vanilla-js-spa-patterns
+- vision-chunk-ocr
+- web-sourced-market-brief
+- wechat-push-message
 - weekly-business-report
+- writing-plans
 - xlsx
+- zlib-ebook-download
 - zotero-actions-tags-guide
 - zotero-addon-market-guide
 - zotero-ai-butler-guide
