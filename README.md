@@ -109,46 +109,13 @@
 - svg-from-pdf-figure
 - **frontend-design-skills**（bundle: design-taste-frontend, design-taste-frontend-v1, gpt-taste, high-end-visual-design, stitch-design-taste）
 ### data-science
-- ai-model-benchmarking
-- astrophysics-data-guide
-- bayesian-statistics-guide
-- computer-vision-guide
-- csv-data-analyzer
-- data-anomaly-detection
-- data-cleaning-pipeline
-- data-cog-guide
-- data-collection-automation
-- handwriting-recognition-guide
-- huggingface-api
-- huggingface-inference-guide
-- json-data-visualizer
-- jupyter-live-kernel
-- jupyter-notebook-guide
-- linear-algebra-applications
-- llm-evaluation-guide
-- llm-from-scratch-guide
-- ml-experiment-tracker
-- ml-pipeline-guide
-- modeling-strategy-guide
-- nlp-toolkit-guide
-- numerical-methods-guide
-- pandas-data-wrangling
-- pdf-records-extraction
-- pdf-to-readable-markdown
-- power-analysis-guide
-- python-causality-guide
-- python-dataviz-guide
-- python-reproducibility-guide
-- pytorch-guide
-- pytorch-lightning-guide
-- quantum-computing-guide
-- responsible-ai-guide
-- tensorflow-guide
-- transformer-architecture-guide
-- vision-chunk-ocr
 - **ai-ml-skills**（bundle: dl-transformer-finetune, domain-adaptation-papers-guide, generative-ai-guide, keras-deep-learning, kolmogorov-arnold-networks-guide, prompt-engineering-research, reinforcement-learning-guide, vmas-simulator-guide）
 - **code-exec-skills**（bundle: google-colab-guide, kaggle-api-guide, r-reproducibility-guide, sandbox-execution-guide）
+- **data-wrangling-skills**（bundle: astrophysics-data-guide, csv-data-analyzer, data-cleaning-pipeline, data-cog-guide, data-collection-automation, json-data-visualizer, jupyter-live-kernel, jupyter-notebook-guide, pandas-data-wrangling, python-dataviz-guide, python-reproducibility-guide）
 - **math-skills**（bundle: lean-theorem-proving-guide, oeis-api, symbolic-computation-guide, topology-data-analysis）
+- **ml-engineering-skills**（bundle: ai-model-benchmarking, computer-vision-guide, huggingface-api, huggingface-inference-guide, llm-evaluation-guide, llm-from-scratch-guide, ml-experiment-tracker, ml-pipeline-guide, nlp-toolkit-guide, pytorch-guide, pytorch-lightning-guide, quantum-computing-guide, responsible-ai-guide, tensorflow-guide, transformer-architecture-guide）
+- **ocr-document-skills**（bundle: handwriting-recognition-guide, pdf-records-extraction, pdf-to-readable-markdown, vision-chunk-ocr）
+- **statistics-skills**（bundle: bayesian-statistics-guide, data-anomaly-detection, linear-algebra-applications, modeling-strategy-guide, numerical-methods-guide, power-analysis-guide, python-causality-guide）
 ### devops
 - aesculap-setup
 - apple-container-build

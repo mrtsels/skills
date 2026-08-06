@@ -11,7 +11,7 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 |-------|-------------|
 | [code-flow-visualizer](./../../frontend/code-flow-visualizer/SKILL.md) | Convert Python, JavaScript, and TypeScript functions into Mermaid flowcharts |
 | [excalidraw-diagram-guide](./excalidraw-diagram-guide/SKILL.md) | Generate hand-drawn style Excalidraw diagrams from text descriptions |
-| [json-data-visualizer](./../../data-science/json-data-visualizer/SKILL.md) | Guide to JSON Crack for visualizing complex JSON data structures |
+| [json-data-visualizer](./../../data-science/data-wrangling-skills/json-data-visualizer/SKILL.md) | Guide to JSON Crack for visualizing complex JSON data structures |
 | [kroki-diagram-api](./kroki-diagram-api/SKILL.md) | Generate diagrams from text via Kroki's multi-format rendering API |
 | [mermaid-architect-guide](./mermaid-architect-guide/SKILL.md) | Design complex multi-diagram architectures using advanced Mermaid syntax |
 | [mermaid-diagram-guide](./mermaid-diagram-guide/SKILL.md) | Create flowcharts, sequence diagrams, and architecture diagrams with Mermaid |

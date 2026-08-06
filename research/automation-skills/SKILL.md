@@ -12,7 +12,7 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 | [ai-scientist-v2-guide](./../ai-scientist-v2-guide/SKILL.md) | Automated scientific discovery via agentic tree search by Sakana AI |
 | [aim-experiment-guide](./aim-experiment-guide/SKILL.md) | Track and compare research experiments with Aim experiment tracker |
 | [claude-academic-workflow-guide](./../claude-academic-workflow-guide/SKILL.md) | Claude Code template for LaTeX, Beamer, and R research workflows |
-| [data-collection-automation](./../../data-science/data-collection-automation/SKILL.md) | Automate survey deployment, data collection, and pipeline management |
+| [data-collection-automation](./../../data-science/data-wrangling-skills/data-collection-automation/SKILL.md) | Automate survey deployment, data collection, and pipeline management |
 | [datagen-research-guide](./../../research/datagen-research-guide/SKILL.md) | AI-driven multi-agent research assistant for end-to-end studies |
 | [kedro-pipeline-guide](./kedro-pipeline-guide/SKILL.md) | Build reproducible data science pipelines with Kedro for research projects |
 | [mle-agent-guide](./mle-agent-guide/SKILL.md) | Intelligent companion for ML engineering with arXiv integration |
