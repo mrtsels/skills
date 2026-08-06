@@ -12,7 +12,7 @@ consulting-problem-solving/.git/
 best-practices/
 
 # ===== 敏感内容：内部专用 skill 目录（粤财/衡泰/内网/个人凭据，整体不入库）=====
-agently-mail/
+email/agently-mail/
 automation/email-automation/
 autonomous-ai-agents/cusis-login/
 apple/internal-device-access/
@@ -20,10 +20,10 @@ apple/macos-network-diagnostics/
 devops/yuecai-scanner-download/
 email/imap-attachment-download/
 infrastructure/coremail-imap/
-kylin-vm-deployment/
+infrastructure/kylin-vm-deployment/
 productivity/email-triage/
 software-development/extjs-api-discovery/
-windows-thinkpad/
+devops/windows-thinkpad/
 workflow/fuji-xerox-scanner-access/
 workflow/post-investment-data-maintenance/
 workflow/quant-academy-task-workflow/
