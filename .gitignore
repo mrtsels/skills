@@ -1,57 +1,9 @@
-# Ignore everything except the manifest files, skill stand-ins (symlinks), and the latex-skills bundle
+# Ignore everything except the manifest files and skill stand-ins (symlinks)
 *
 !.gitignore
 !README.md
 !skills-manifest.md
-!architecture-diagram
-!bash-cli-patterns
-!cron-agent-flow
-!de-ai-ify-code
-!document-format-conversion
-!docx-content-patching
-!dynamic-workflow
 !ego-browser
-!excalidraw
-!github
-!grounded-citations
-!holographic-memory-migration
-!humanizer
-!install-agent-cli-tool
-!jupyter-live-kernel
-!lecture-notes
-!markdown-math
-!meeting-notes
-!mermaid-diagrams
-!native-mcp
-!open-computer-use-mcp
-!pdf-records-extraction
-!pdf-to-readable-markdown
-!petdex
-!powerpoint
-!project-handover-documentation
-!python-code-style
-!repo-documentation
-!repository-cleanup
-!scanned-pdf-ocr
-!simplified-technical-english
-!sketch
-!spike
-!spring-logging
-!sql-seed-maintenance
-!structured-research-report
-!svg-from-pdf-figure
-!systematic-debugging
-!technical-research-report
-!test-driven-development
-!training-pipeline-debugging
-!tui-widgets
-!vanilla-js-spa-patterns
-!vision-chunk-ocr
-!web-sourced-market-brief
-!wechat-push-message
-!writing-plans
-!zlib-ebook-download
 
-# latex-skills bundle: tracked in full
+# latex-skills bundle: index SKILL.md + sub-skill symlink stand-ins
 !latex-skills/
-!latex-skills/**
