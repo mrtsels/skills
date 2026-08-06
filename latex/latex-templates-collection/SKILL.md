@@ -1,6 +1,6 @@
 ---
 name: latex-templates-collection
-description: "Collection of LaTeX templates for papers, presentations, and CVs"
+description: "Use when starting a LaTeX document (paper, presentation, CV): pick a fitting template, adapt it, and compile with best practices."
 version: 1.0.0
 author: wentor-community
 source: https://github.com/deedydas/latex-templates
@@ -16,167 +16,67 @@ metadata:
       - cv-templates
       - academic-formatting
       - beamer
+      - arxiv
 ---
 
 # LaTeX Templates Collection
 
-A skill providing a curated collection of LaTeX templates for academic papers, conference presentations, CVs, cover letters, and other documents commonly needed by researchers. Based on the latex-templates repository (655 stars), this skill helps researchers quickly start professionally formatted documents without spending hours on layout configuration.
+**Trigger:** You are starting a new LaTeX document — paper, slides, CV, thesis, grant, or poster — and need a proven template plus a reliable path from scaffold to compiled output, including arXiv submissions.
 
-## Overview
+## 1. Choose a Template by Document Type
 
-Researchers spend significant time formatting documents to meet the requirements of different journals, conferences, and institutions. A well-organized template library eliminates this overhead by providing ready-to-use starting points that comply with common formatting standards. This skill catalogs templates by document type and provides guidance on selection, customization, and best practices for each category.
+Match the template to the target venue and document type before writing anything. Prefer a venue's official template when one exists; otherwise start from the closest generic style and adapt it (see Section 7). The typical workflow is: select the template → scaffold the document → pre-populate title, author, and affiliation metadata → draft content (pair with writing composition skills) → manage references (pair with bibliography skills) → compile and verify → package for submission.
 
-The templates cover the full range of academic document needs: research papers, technical reports, conference slides, academic CVs, cover letters, grant proposals, and poster presentations. Each template is designed for professional quality output with clean typography and proper academic formatting.
+| Template | Best for |
+|----------|----------|
+| arxiv-style (NIPS/NeurIPS look) | General ML/CS preprints |
+| NeurIPS / ICML / ICLR official | Machine learning conference submissions |
+| ACL / EMNLP | NLP conference submissions |
+| CVPR / ICCV | Computer vision conference submissions |
+| CHI / CSCW | HCI conference submissions |
+| IEEE / ACM / Elsevier two-column | Journal articles |
+| Beamer | Talks, lectures, thesis defense |
+| Academic CV | Faculty and postdoc applications |
+| Resume | Industry applications |
+| ElegantPaper | Working papers and tech reports |
+| A0 poster | Conference poster sessions |
 
-## Paper Templates
+## 2. Paper Templates (Journals & Conferences)
 
-**Journal Article Templates**
-- Two-column format templates for IEEE, ACM, and Elsevier journals
-- Single-column format templates for Nature, Science, and PNAS style submissions
-- APA-formatted manuscript templates for social science journals
-- Generic article templates adaptable to any journal's requirements
-- Preprint templates optimized for arXiv and other preprint servers
+### Journal Article Templates
 
-**Conference Paper Templates**
-- NeurIPS, ICML, and ICLR templates for machine learning conferences
-- ACL and EMNLP templates for NLP conferences
-- CVPR and ICCV templates for computer vision conferences
-- CHI and CSCW templates for HCI conferences
+- Two-column formats for IEEE, ACM, and Elsevier journals
+- Single-column formats for Nature, Science, and PNAS style submissions
+- APA-formatted manuscripts for social science journals
+- Generic `article`-class templates adaptable to any journal's requirements
+- Preprint templates optimized for arXiv and other preprint servers (see Section 3)
+
+### Conference Paper Templates
+
+- NeurIPS, ICML, and ICLR for machine learning conferences
+- ACL and EMNLP for NLP conferences
+- CVPR and ICCV for computer vision conferences
+- CHI and CSCW for HCI conferences
 - Generic conference templates following common two-column layouts
 
-**Template Structure**
-- Each paper template includes: title page configuration, abstract environment, section hierarchy, bibliography setup, and appendix formatting
-- Figure and table environments with proper captioning and numbering
-- Algorithm and code listing environments for technical papers
-- Mathematical theorem, proof, and definition environments
-- Author metadata fields (name, affiliation, email, ORCID)
+### Shared Paper Structure
 
-## Presentation Templates
+Every paper template provides the same core skeleton: title page configuration, an abstract environment, section hierarchy, bibliography setup, and appendix formatting. Figure and table environments ship with proper captioning and numbering; algorithm and code listing environments support technical papers; theorem, proof, and definition environments cover math-heavy content; and author metadata fields handle name, affiliation, email, and ORCID.
 
-**Beamer Templates**
-- Clean, minimal themes suitable for academic talks
-- Conference presentation templates with progress indicators
-- Lecture slide templates with note support for teaching
-- Thesis defense templates with structured slide sequences
-- Poster session lightning talk templates
+## 3. arXiv Preprint Template (NIPS/NeurIPS Style)
 
-**Presentation Best Practices**
-- Use large fonts (minimum 24pt for body text, 32pt for titles)
-- Limit content to one main idea per slide
-- Use figures and diagrams instead of dense text
-- Include slide numbers and total count for audience orientation
-- Provide a handout version with multiple slides per page
+For arXiv preprints, the clean minimal arxiv-style template gives professional CS/ML formatting without the overhead of a full conference submission kit. It is based on the NIPS/NeurIPS conference look, includes proper bibliography and math support, and supports single or double column layouts.
 
-**Animation and Overlays**
-- Use Beamer's overlay specifications for progressive content reveal
-- Build complex diagrams step by step across overlay frames
-- Highlight key terms or equations when they are first introduced
-- Use pause commands for natural presentation flow
-- Export animated PDFs for self-running presentations
-
-## CV and Resume Templates
-
-**Academic CV Templates**
-- Comprehensive CV format with sections for: education, positions, publications, grants, teaching, service, talks
-- Publication list formatting with citation counts and impact metrics
-- Grant history with amounts, agencies, and roles
-- Teaching portfolio section with course descriptions and evaluations
-- Awards and honors with dates and descriptions
-
-**Resume Templates**
-- Concise one-page or two-page formats for industry applications
-- Skills-focused layouts for technical positions
-- Research summary formats for postdoc applications
-- Clean, ATS-friendly designs that parse correctly in application systems
-- Customizable color accents and section ordering
-
-**Cover Letter Templates**
-- Academic job application cover letters with structured paragraphs
-- Grant application cover letters with project summary integration
-- Journal submission cover letters with editorial board alignment
-- Postdoc application letters emphasizing research vision
-- Industry transition letters highlighting transferable skills
-
-## Other Academic Templates
-
-**Thesis and Dissertation**
-- Chapter-based templates with front matter, back matter, and appendices
-- University-specific formatting packages for common institutions
-- Proposal templates for thesis committee submissions
-- Progress report templates for annual reviews
-
-**Grant Proposals**
-- NSF-style proposal templates with required sections
-- NIH grant format templates with specific aims structure
-- EU Horizon-style templates with work package organization
-- Internal funding application templates
-
-**Posters**
-- Conference poster templates in A0 and standard sizes
-- Multi-column layouts with figures and results sections
-- QR code integration for linking to preprints and code
-- Print-ready templates with correct DPI and bleed settings
-
-## Customization Guide
-
-**Font Selection**
-- Default Computer Modern works for most applications
-- Times-like fonts: use `mathptmx` or `newtxtext`/`newtxmath`
-- Sans-serif: use `helvet` or `sourcesanspro` for modern appearance
-- Monospace: use `inconsolata` for code listings
-- Always ensure math fonts are compatible with text fonts
-
-**Color Schemes**
-- Define institutional colors in the preamble for consistent branding
-- Use `xcolor` package with named colors for maintainability
-- Limit the palette to 3-4 colors maximum for professional appearance
-- Ensure sufficient contrast for accessibility (WCAG AA minimum)
-- Provide grayscale fallbacks for print compatibility
-
-**Page Layout**
-- Use `geometry` package for margin and page size configuration
-- Set line spacing with `setspace` package (single, 1.5, double)
-- Configure header and footer with `fancyhdr` package
-- Control paragraph spacing and indentation with `parskip` or manual settings
-- Set column separation and rule for multi-column layouts
-
-## Integration with Research-Claw
-
-This skill supports the Research-Claw document preparation workflow:
-
-- Select appropriate templates based on the target venue
-- Customize templates to match specific submission requirements
-- Pre-populate templates with metadata from the research project
-- Connect with writing composition skills for content generation
-- Integrate with bibliography skills for reference management
-
-## Best Practices
-
-- Keep a personal template library with your preferred customizations pre-applied
-- Version control your templates alongside your documents
-- Test template compilation with a minimal document before starting the full manuscript
-- Read the target venue's author guidelines even when using their official template
-- Update templates before each new submission to catch any guideline changes
-- Maintain backward compatibility by not removing custom commands from templates
-
----
-
-## arXiv Preprint Template (NIPS/NeurIPS style)
-
-## Overview
-
-A clean, minimal LaTeX template for arXiv preprints based on the NIPS/NeurIPS conference style. Provides professional formatting for CS/ML papers without the overhead of full conference submission templates. Includes proper bibliography, math support, and single/double column layouts.
-
-## Quick Start
+### Quick Start
 
 ```bash
 git clone https://github.com/kourgeorge/arxiv-style.git
 cd arxiv-style
-# Edit main.tex, compile:
+# Edit main.tex, then compile in this order:
 pdflatex main && bibtex main && pdflatex main && pdflatex main
 ```
 
-## Template Structure
+### main.tex Structure
 
 ```latex
 \documentclass{article}
@@ -231,9 +131,7 @@ pdflatex main && bibtex main && pdflatex main && pdflatex main
 \end{document}
 ```
 
-## Key Features
-
-### Math Support
+### Math, Tables, and Figures
 
 ```latex
 % Theorem environments
@@ -262,10 +160,8 @@ For any $\epsilon > 0$, there exists $\delta > 0$ such that...
 \end{algorithm}
 ```
 
-### Tables and Figures
-
 ```latex
-% Results table
+% Results table (booktabs style)
 \begin{table}[t]
 \centering
 \caption{Comparison with baselines on benchmark datasets.}
@@ -287,27 +183,121 @@ Ours & \textbf{91.7} & \textbf{90.3} & 8.2 \\
 \end{figure}
 ```
 
-### arXiv Submission Tips
+### Prepare the Submission Package
+
+Include in the arXiv upload: all `.tex`, `.bib`, and `.bbl` files; all figures (PDF preferred over PNG); and `arxiv.sty`. Exclude build artifacts such as `.aux`, `.log`, and `.out` files.
 
 ```bash
-# Prepare submission package
-# 1. Include all .tex, .bib, .bbl files
-# 2. Include all figures (PDF preferred over PNG)
-# 3. Include arxiv.sty
-# 4. Do NOT include .aux, .log, .out files
-
-# Create submission archive
+# Create the submission archive
 tar -czf submission.tar.gz \
   main.tex arxiv.sty references.bbl figures/
 ```
 
-## Customization
+## 4. Presentation Templates (Beamer)
+
+### Beamer Themes
+
+- Clean, minimal themes suitable for academic talks
+- Conference presentation templates with progress indicators
+- Lecture slide templates with note support for teaching
+- Thesis defense templates with structured slide sequences
+- Poster session lightning talk templates
+
+### Content Best Practices
+
+- Use large fonts: minimum 24pt for body text, 32pt for titles
+- Limit content to one main idea per slide
+- Prefer figures and diagrams over dense text
+- Include slide numbers and the total count for audience orientation
+- Provide a handout version with multiple slides per page
+
+### Animation and Overlays
+
+- Use overlay specifications for progressive content reveal
+- Build complex diagrams step by step across overlay frames
+- Highlight key terms or equations when first introduced
+- Use `\pause` commands for natural presentation flow
+- Export animated PDFs for self-running presentations
+
+## 5. CV, Resume & Cover Letter Templates
+
+### Academic CV Templates
+
+- Comprehensive sections: education, positions, publications, grants, teaching, service, talks
+- Publication list formatting with citation counts and impact metrics
+- Grant history with amounts, agencies, and roles
+- Teaching portfolio with course descriptions and evaluations
+- Awards and honors with dates and descriptions
+
+### Resume Templates
+
+- Concise one-page or two-page formats for industry applications
+- Skills-focused layouts for technical positions
+- Research summary formats for postdoc applications
+- Clean, ATS-friendly designs that parse correctly in application systems
+- Customizable color accents and section ordering
+
+### Cover Letter Templates
+
+- Academic job application letters with structured paragraphs
+- Grant application letters with project summary integration
+- Journal submission letters aligned to the editorial board
+- Postdoc application letters emphasizing research vision
+- Industry transition letters highlighting transferable skills
+
+## 6. Thesis, Grant & Poster Templates
+
+### Thesis and Dissertation
+
+- Chapter-based templates with front matter, back matter, and appendices
+- University-specific formatting packages for common institutions
+- Proposal templates for thesis committee submissions
+- Progress report templates for annual reviews
+
+### Grant Proposals
+
+- NSF-style proposal templates with required sections
+- NIH grant format with a specific aims structure
+- EU Horizon-style templates with work package organization
+- Internal funding application templates
+
+### Posters
+
+- Conference poster templates in A0 and standard sizes
+- Multi-column layouts with figures and results sections
+- QR code integration for linking to preprints and code
+- Print-ready templates with correct DPI and bleed settings
+
+## 7. Customize Any Template
+
+### Font Selection
+
+- Default Computer Modern works for most applications
+- Times-like fonts: `mathptmx` or `newtxtext`/`newtxmath`
+- Sans-serif: `helvet` or `sourcesanspro` for a modern appearance
+- Monospace: `inconsolata` for code listings
+- Always ensure math fonts are compatible with text fonts
+
+### Color Schemes
+
+- Define institutional colors in the preamble for consistent branding
+- Use `xcolor` named colors for maintainability
+- Limit the palette to 3-4 colors for a professional look
+- Ensure sufficient contrast for accessibility (WCAG AA minimum)
+- Provide grayscale fallbacks for print compatibility
+
+### Page Layout
+
+- Use `geometry` for margin and page size configuration
+- Set line spacing with `setspace` (single, 1.5, double)
+- Configure headers and footers with `fancyhdr`
+- Control paragraph spacing and indentation with `parskip`
+- Set column separation and rules for multi-column layouts
+
+### Review and Submission Options
 
 ```latex
-% Single column (default)
-\documentclass{article}
-
-% Two column layout
+% Two-column layout (the arXiv template defaults to single column)
 \documentclass[twocolumn]{article}
 
 % Line numbers (for review)
@@ -319,17 +309,22 @@ tar -czf submission.tar.gz \
 \hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue}
 ```
 
-## Related Templates
+## Pitfalls
 
-| Template | Best for |
-|----------|----------|
-| arxiv-style | General ML/CS preprints |
-| NeurIPS template | NeurIPS submissions |
-| ICML template | ICML submissions |
-| ElegantPaper | Working papers/tech reports |
+- Read the venue's author guidelines even when using its official template — guidelines change between submission cycles.
+- Never include build artifacts (`.aux`, `.log`, `.out`) in an arXiv upload; strip them before packing.
+- Test-compile a minimal document with any new template before starting the full manuscript.
+- Don't mix text and math fonts carelessly — verify compatibility (e.g., `helvet` with default math).
+- Keep color palettes to 3-4 colors and check grayscale/print output.
+- Don't rely on overlays in handouts — provide a static multiple-slides-per-page version.
+- Keep custom commands backward compatible when updating templates; removing them breaks documents that depend on them.
+- Refresh templates before each new submission to catch guideline changes.
+- Version-control templates alongside your documents.
+- Maintain a personal template library with your preferred customizations pre-applied.
 
 ## References
 
+- [latex-templates repository](https://github.com/deedydas/latex-templates)
 - [arxiv-style GitHub](https://github.com/kourgeorge/arxiv-style)
 - [arXiv Submission Guide](https://info.arxiv.org/help/submit/index.html)
 - [arXiv LaTeX Cleaner](https://github.com/google-research/arxiv-latex-cleaner)

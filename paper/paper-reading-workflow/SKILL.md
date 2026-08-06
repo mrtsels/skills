@@ -1,6 +1,6 @@
 ---
 name: paper-reading-workflow
-description: "End-to-end paper reading pipeline — acquire and parse PDFs (GROBID), three-pass reading with structured notes, and turn papers into interactive agents for exploration."
+description: "Use when reading academic papers: parse PDFs (GROBID), read via three passes, take structured notes, or turn papers into interactive agents."
 metadata:
   openclaw:
     emoji: "🔬"
@@ -10,19 +10,11 @@ metadata:
     source: "wentor-research-plugins"
 ---
 
-# Paper Parse Guide
+# Paper Reading Workflow
 
-Perform structured, dual-mode deep reading of academic papers from PDF files or URLs. Mode A provides a rapid overview suitable for screening during literature reviews. Mode B delivers exhaustive section-by-section analysis for papers central to your research.
+Use this skill when you need to work through academic papers end to end: acquire and parse the PDF, read it at the right depth, capture structured notes, and optionally turn it into an interactive agent for question-answering, knowledge-graph building, or multi-paper comparison. The pipeline below runs in execution order — parse first, then read, then analyze, then explore.
 
-## Overview
-
-Reading academic papers efficiently is a core research skill, yet the density and conventions of scholarly writing make it time-consuming. A typical researcher reads dozens of papers per week during a literature review phase, requiring different levels of depth for different papers. Some need only a quick scan to determine relevance; others demand line-by-line scrutiny of methods and results.
-
-This skill implements a dual-mode reading system. Mode A (Survey Mode) extracts key metadata, the main argument, methods summary, and key findings in under two minutes of processing time. Mode B (Deep Analysis Mode) performs exhaustive section-by-section analysis including methodology critique, statistical evaluation, figure interpretation, and connection to broader literature.
-
-Both modes begin by parsing the paper's structure from its PDF or HTML source, extracting clean text with section boundaries, figures, tables, equations, and references. The parsing pipeline handles the common challenges of academic PDFs: two-column layouts, footnotes, headers/footers, embedded equations, and supplementary materials.
-
-## Paper Acquisition and Parsing
+## 1. Paper Acquisition and Parsing
 
 ### Input Sources
 
@@ -34,47 +26,42 @@ Both modes begin by parsing the paper's structure from its PDF or HTML source, e
 | URL | Direct download | May require institutional access |
 | OpenAlex ID | OpenAlex API + OA link | Includes metadata |
 
-### PDF Parsing Pipeline
+### Section-Aware Text Extraction (PyMuPDF)
+
+Extract clean text grouped by section using bold + font-size heading heuristics. This handles the common challenges of academic PDFs: two-column layouts, footnotes, headers/footers, embedded equations, and supplementary materials.
 
 ```python
-from pathlib import Path
 import fitz  # PyMuPDF
 
-def parse_paper(pdf_path: str) -> dict:
+def extract_sections(pdf_path):
+    """Extract text grouped by section; headings detected by bold + font size."""
     doc = fitz.open(pdf_path)
     sections = []
-    current_section = {"title": "Header", "content": []}
-
+    current = {"heading": "Preamble", "text": ""}
     for page in doc:
         blocks = page.get_text("dict")["blocks"]
         for block in blocks:
-            if block["type"] == 0:  # Text block
-                for line in block["lines"]:
-                    text = " ".join(span["text"] for span in line["spans"])
-                    font_size = max(span["size"] for span in line["spans"])
-                    is_bold = any("Bold" in span["font"] for span in line["spans"])
-
-                    # Detect section headings
-                    if font_size > 11 and is_bold:
-                        if current_section["content"]:
-                            sections.append(current_section)
-                        current_section = {"title": text.strip(), "content": []}
-                    else:
-                        current_section["content"].append(text)
-
-    sections.append(current_section)
-    return {
-        "title": extract_title(doc),
-        "authors": extract_authors(doc),
-        "sections": sections,
-        "references": extract_references(doc),
-        "page_count": len(doc)
-    }
+            if "lines" not in block:
+                continue
+            for line in block["lines"]:
+                text = " ".join(span["text"] for span in line["spans"])
+                font_size = max(span["size"] for span in line["spans"])
+                is_bold = any("Bold" in span.get("font", "") for span in line["spans"])
+                if is_bold and font_size > 11 and len(text.strip()) < 80:
+                    if current["text"].strip():
+                        sections.append(current)
+                    current = {"heading": text.strip(), "text": ""}
+                else:
+                    current["text"] += text + " "
+    if current["text"].strip():
+        sections.append(current)
+    doc.close()
+    return sections
 ```
 
-### GROBID Integration
+### High-Fidelity Parsing with GROBID
 
-For higher-quality structural parsing, use GROBID (GeneRation Of BIbliographic Data):
+For higher-quality structural parsing, use GROBID (GeneRation Of BIbliographic Data). It returns TEI XML with structured sections, author affiliations, parsed references, and figure/table captions, and handles complex layouts better than plain text extraction:
 
 ```bash
 # Start GROBID server
@@ -89,213 +76,69 @@ curl -X POST "http://localhost:8070/api/processFulltextDocument" \
   -o parsed_paper.xml
 ```
 
-GROBID returns TEI XML with structured sections, author affiliations, parsed references, and figure/table captions. It handles two-column layouts, footnotes, and complex formatting better than simple text extraction.
+From either parser, capture the paper's identity (title, authors, affiliations, venue, DOI, page count) and type (empirical / theoretical / review / methods / position). Always keep figure and table captions in the parsed output — they carry most of the information in results-heavy papers.
 
-## Mode A: Survey Reading
+## 2. Three-Pass Reading
 
-Designed for rapid screening. Produces a structured summary in 5 components:
-
-### 1. Identity Card
-
-```
-Title:      [Extracted title]
-Authors:    [First author et al., year]
-Venue:      [Journal/Conference name]
-DOI:        [DOI if available]
-Pages:      [Page count]
-Type:       [Empirical / Theoretical / Review / Methods]
-```
-
-### 2. Core Argument (1-2 sentences)
-
-Extract from abstract + introduction: What is the main claim?
-
-### 3. Methods Snapshot
-
-- Study design (experimental, observational, computational, theoretical)
-- Sample/dataset description
-- Key techniques or models used
-
-### 4. Key Findings (3-5 bullets)
-
-Extract from results section and abstract.
-
-### 5. Relevance Assessment
-
-- Relevance to current research question: High / Medium / Low
-- Methodological quality signal: sample size, controls, statistical rigor
-- Recommended action: Deep read / Cite only / Skip
-
-## Mode B: Deep Analysis
-
-Exhaustive section-by-section reading with critical evaluation.
-
-### Introduction Analysis
-
-- What gap in the literature does this paper address?
-- What is the stated research question or hypothesis?
-- How does the framing position the contribution?
-
-### Literature Review Evaluation
-
-- Which theoretical frameworks are invoked?
-- Are there notable omissions in cited literature?
-- How does the paper position itself relative to competing approaches?
-
-### Methodology Critique
-
-- Is the methodology appropriate for the research question?
-- Sample size and power analysis: reported? adequate?
-- Threats to internal and external validity
-- Reproducibility: are methods described in sufficient detail?
-- Statistical tests: appropriate? assumptions met?
-
-### Results Assessment
-
-- Do the results support the claims?
-- Effect sizes: reported? meaningful?
-- Confidence intervals vs. p-values
-- Figures and tables: do they accurately represent the data?
-- Any signs of p-hacking or selective reporting?
-
-### Discussion Evaluation
-
-- Are limitations adequately acknowledged?
-- Are alternative explanations considered?
-- Do the conclusions follow logically from the results?
-- Are implications overstated?
-
-### Reference Network
-
-- Extract all cited works with metadata
-- Identify seminal references (cited by many papers in this field)
-- Flag self-citations
-- Map citation clusters by topic
-
-## Output Formats
-
-### Structured Note (Markdown)
-
-```markdown
-## [Paper Title] ([Year])
-
-**Authors**: [Authors]
-**Venue**: [Venue]
-**DOI**: [DOI]
-
-### Summary
-[2-3 sentence summary]
-
-### Key Contributions
-1. [Contribution 1]
-2. [Contribution 2]
-
-### Methodology
-[Methods description]
-
-### Strengths
-- [Strength 1]
-- [Strength 2]
-
-### Weaknesses
-- [Weakness 1]
-- [Weakness 2]
-
-### Relevance to My Research
-[How this paper connects to your work]
-
-### Key Quotes
-> "[Notable quote]" (p. X)
-
-### References to Follow
-- [Ref 1]: [Why relevant]
-- [Ref 2]: [Why relevant]
-```
-
-### BibTeX Entry
-
-Automatically extract or generate a BibTeX entry for the parsed paper, including all available fields (author, title, journal, year, volume, pages, doi).
-
-## Batch Processing
-
-For systematic reviews, process multiple papers in sequence:
-
-```python
-papers = ["paper1.pdf", "paper2.pdf", "paper3.pdf"]
-summaries = []
-
-for pdf in papers:
-    parsed = parse_paper(pdf)
-    summary = mode_a_survey(parsed)
-    summaries.append(summary)
-
-# Generate comparison matrix
-comparison = create_comparison_table(summaries,
-    columns=["methods", "sample_size", "key_finding", "relevance"])
-```
-
-## References
-
-- GROBID: https://github.com/kermitt2/grobid
-- PyMuPDF: https://pymupdf.readthedocs.io
-- OpenAlex API: https://api.openalex.org
-- Unpaywall API: https://unpaywall.org/products/api
-- S. Keshav, "How to Read a Paper" (2007): http://ccr.sigcomm.org/online/files/p83-keshavA.pdf
-
----
-
-## Three-Pass Reading Method
-
-Systematic workflows for reading, annotating, and extracting insights from academic papers, including AI-assisted summarization and critical analysis techniques.
-
-## The Three-Pass Reading Method
-
-Srinivasan Keshav's three-pass approach provides a structured way to read papers at increasing depth:
+Keshav's three-pass method lets you read at increasing depth and stop early when a paper is not relevant.
 
 ### Pass 1: Survey (5-10 minutes)
 
 Read only:
 1. Title, abstract, and keywords
 2. Introduction (first and last paragraph only)
-3. Section headings (all of them)
+3. All section headings
 4. Conclusion
-5. Glance at figures and tables (read captions)
-6. Check the reference list for familiar papers
+5. Figure and table captions
+6. Reference list (scan for familiar papers)
 
-After Pass 1, you should know:
-- **Category**: Is this an empirical study, theoretical contribution, system paper, survey?
-- **Context**: What related work does it build on?
-- **Correctness**: Do the assumptions and claims seem reasonable?
-- **Contributions**: What are the main claimed contributions?
-- **Clarity**: Is the paper well-written?
+After Pass 1 you should know: **category** (empirical/theoretical/system/survey), **context** (what related work it builds on), **correctness** (do assumptions and claims seem reasonable), **contributions** (main claimed contributions), and **clarity** (is it well-written).
 
-**Decision**: Stop here if the paper is not relevant, or continue to Pass 2.
+**Screening card**: while surveying, capture five components — identity (title/authors/venue/DOI/type), core argument (1-2 sentences from abstract + introduction), methods snapshot (design, sample/dataset, key techniques), key findings (3-5 bullets), and relevance assessment (High/Medium/Low, quality signal, and recommended action: deep read / cite only / skip).
+
+**Decision**: stop here if the paper is not relevant; otherwise continue to Pass 2.
 
 ### Pass 2: Comprehension (30-60 minutes)
 
-Read the full paper, but skip proofs and complex derivations:
+Read the full paper, skipping proofs and complex derivations:
 1. Examine figures and tables carefully
 2. Mark unread references for later
 3. Annotate key claims, methods, and results
-4. Try to summarize each section in one sentence
+4. Summarize each section in one sentence
 
-After Pass 2, you should be able to:
-- Summarize the paper's main contribution to someone else
-- Identify the key evidence supporting the claims
-- List the paper's strengths and weaknesses
+After Pass 2 you should be able to summarize the main contribution to someone else, identify the key evidence supporting the claims, and list the paper's strengths and weaknesses.
 
 ### Pass 3: Recreation (1-4 hours)
 
-For papers you need to deeply understand:
-1. Try to mentally re-derive the key results
-2. Challenge every assumption
-3. Identify implicit assumptions not stated
-4. Think about how you would improve the work
-5. Compare the approach to alternatives
+For papers central to your research:
+1. Mentally re-derive the key results
+2. Challenge every assumption; identify implicit ones not stated
+3. Think about how you would improve the work
+4. Compare the approach to alternatives
 
-## Structured Note-Taking Template
+### Depth by Paper Type
 
-Use a consistent template for every paper you read:
+| Paper Type | Focus On | Time Budget |
+|-----------|----------|-------------|
+| Seminal paper | Full three-pass reading, every detail | 3-4 hours |
+| Survey/review | Section headings, taxonomy, open questions | 1-2 hours |
+| Methods paper | Algorithm/procedure, pseudocode, evaluation | 1-2 hours |
+| Results paper | Figures, tables, statistical tests, effect sizes | 30-60 min |
+| Position paper | Arguments, assumptions, counterarguments | 30-60 min |
+| Related work (peripheral) | Abstract + conclusion only (Pass 1) | 5-10 min |
+
+### Critical Analysis Checklist (Pass 2/3)
+
+- **Introduction**: What gap does the paper address? What is the research question or hypothesis?
+- **Literature review**: Which theoretical frameworks are invoked? Any notable omissions? How does it position itself against competing approaches?
+- **Methodology**: Is the design appropriate for the question? Sample size and power analysis reported and adequate? Threats to internal/external validity? Statistical tests appropriate with assumptions met? Reproducibility — sufficient detail?
+- **Results**: Do the results support the claims? Effect sizes reported and meaningful? Confidence intervals vs. p-values? Do figures/tables accurately represent the data? Any signs of p-hacking or selective reporting?
+- **Discussion**: Are limitations acknowledged? Are alternative explanations considered? Do conclusions follow logically, or are implications overstated?
+- **References**: Extract cited works with metadata, identify seminal references, flag self-citations, and map citation clusters by topic.
+
+## 3. Structured Notes
+
+Use a consistent template for every paper you read so notes stay comparable across your library:
 
 ```markdown
 # Paper Notes: [Short Title]
@@ -319,15 +162,12 @@ How do they approach the problem? Key technical details.
 ## Key Results
 - Result 1: ...
 - Result 2: ...
-- Result 3: ...
 
 ## Strengths
 - Strength 1: ...
-- Strength 2: ...
 
 ## Weaknesses / Limitations
 - Weakness 1: ...
-- Weakness 2: ...
 
 ## Questions / Things I Don't Understand
 - Question 1: ...
@@ -339,137 +179,120 @@ How does this connect to my research? What can I use?
 - [Author, Year] - Why it seems relevant
 ```
 
-## AI-Assisted Paper Analysis
+Also generate a BibTeX entry for the parsed paper (author, title, journal, year, volume, pages, doi) so it drops straight into your reference manager. Maintain a reading log (papers read, dates, ratings, one-line takeaways), read 2-3 papers per week on a schedule, and end every session by writing one sentence on how the paper relates to your own work.
 
-### Summarization Prompts
+## 4. AI-Assisted Analysis
 
-Use structured prompts to extract specific information from papers:
+### Summarization Prompt
 
 ```python
-# Prompt template for paper summarization
 summarize_prompt = """Read the following academic paper and provide:
 
 1. ONE-SENTENCE SUMMARY: The core contribution in a single sentence.
-
-2. KEY FINDINGS (3-5 bullet points):
-   - Finding 1 with specific numbers/results
-   - Finding 2 ...
-
+2. KEY FINDINGS (3-5 bullet points): findings with specific numbers/results.
 3. METHODOLOGY: Describe the approach in 2-3 sentences.
-
 4. LIMITATIONS: List 2-3 limitations acknowledged or unacknowledged.
-
 5. RELEVANCE: How does this relate to [your research topic]?
 
 Paper text:
-{paper_text}
-"""
+{paper_text}"""
+```
 
-# Prompt for critical analysis
+### Critical Analysis Prompt
+
+```python
 critique_prompt = """Analyze the following paper critically:
 
 1. VALIDITY: Are the experimental design and statistical analyses sound?
    Identify any threats to internal/external validity.
-
 2. NOVELTY: What is genuinely new? What is incremental?
-
-3. REPRODUCIBILITY: Could you replicate this study from the description given?
-   What information is missing?
-
-4. ALTERNATIVE EXPLANATIONS: Are there alternative interpretations
-   of the results that the authors do not consider?
-
+3. REPRODUCIBILITY: Could you replicate this study from the description
+   given? What information is missing?
+4. ALTERNATIVE EXPLANATIONS: Are there alternative interpretations of the
+   results that the authors do not consider?
 5. FOLLOW-UP QUESTIONS: What would you want to investigate next?
 
 Paper text:
-{paper_text}
-"""
+{paper_text}"""
 ```
 
-### PDF Processing Pipeline
+## 5. Interactive Exploration: Paper-to-Agent
+
+Traditional reading is linear and passive. Turn a parsed paper into an interactive agent (Paper2Agent-style) that answers questions, explains methodology, and supports replication — valuable for interdisciplinary readers, journal clubs, and students learning critical evaluation. Process the paper through three extraction steps first:
+
+**Step 1: Structure Extraction**
+- Identify sections (abstract, introduction, methods, results, discussion, references)
+- Extract title, authors, affiliations, venue; detect paper type
+- Locate figure/table captions and note supplementary materials
+
+**Step 2: Claim Extraction**
+- Identify the primary research question or hypothesis
+- Extract all major claims; map each to its supporting evidence (data, citations, arguments)
+- Rate evidence strength (strong, moderate, suggestive); note acknowledged limitations
+
+**Step 3: Methodology Mapping**
+- Document the complete experimental/analytical pipeline
+- Extract parameters, dataset descriptions, evaluation metrics, and software tools
+- Note preprocessing/cleaning steps; map the methodology to established frameworks
+
+### Interaction Patterns
+
+- **Question-Answering**: answer content questions with source references; explain technical terms in context; compare the approach to alternatives; generate summaries at different depths (tweet-length, abstract, detailed).
+- **Critical Analysis**: evaluate statistical validity; identify unaddressed confounds; check whether conclusions follow from the evidence; compare with related work; suggest follow-up experiments.
+- **Replication Assistance**: generate step-by-step replication guides; flag missing details; suggest parameter ranges for robustness checks; create data collection templates; list required resources (compute, data, equipment).
+
+Always verify extracted claims against the original text before presenting them, and flag ambiguous or inconsistent writing in the paper instead of silently guessing.
+
+## 6. Knowledge Graphs and Multi-Paper Analysis
+
+### Knowledge Graph Construction
+
+From one or more processed papers, build a knowledge graph:
+- Extract entities: methods, datasets, metrics, tools, concepts
+- Map relationships between entities (uses, extends, contradicts, supports)
+- Link to external knowledge bases (OpenAlex, CrossRef, DOI)
+- Track citation chains for key claims
+- Identify research lineages and methodological evolution
+
+### Multi-Paper Comparison
+
+When multiple papers are processed (e.g., a systematic review), compare them:
+- Compare methodologies across papers addressing similar questions
+- Identify consensus findings and areas of disagreement
+- Trace the evolution of a research direction over time
+- Build synthesis summaries combining evidence from multiple sources
+- Detect gaps in the literature that no existing paper addresses
+
+### Batch Processing
 
 ```python
-import fitz  # PyMuPDF
-
-def extract_paper_text(pdf_path):
-    """Extract structured text from an academic paper PDF."""
-    doc = fitz.open(pdf_path)
-    sections = []
-    current_section = {"heading": "Preamble", "text": ""}
-
-    for page_num, page in enumerate(doc):
-        blocks = page.get_text("dict")["blocks"]
-        for block in blocks:
-            if "lines" not in block:
-                continue
-            for line in block["lines"]:
-                text = "".join(span["text"] for span in line["spans"])
-                font_size = max(span["size"] for span in line["spans"])
-                is_bold = any("Bold" in span.get("font", "") for span in line["spans"])
-
-                # Heuristic: detect section headings
-                if is_bold and font_size > 11 and len(text.strip()) < 80:
-                    if current_section["text"].strip():
-                        sections.append(current_section)
-                    current_section = {"heading": text.strip(), "text": ""}
-                else:
-                    current_section["text"] += text + " "
-
-    if current_section["text"].strip():
-        sections.append(current_section)
-
-    doc.close()
-    return sections
-
-# Extract and display
-sections = extract_paper_text("paper.pdf")
-for s in sections:
-    print(f"\n## {s['heading']}")
-    print(s['text'][:200] + "...")
-```
-
-### Batch Paper Processing
-
-```python
-import os
-import json
+import os, json
 
 def process_paper_batch(pdf_dir, output_file):
-    """Process a batch of papers and save structured notes."""
+    """Parse a directory of PDFs and save structured notes as JSON."""
     results = []
-
     for filename in os.listdir(pdf_dir):
         if not filename.endswith(".pdf"):
             continue
-
-        pdf_path = os.path.join(pdf_dir, filename)
-        sections = extract_paper_text(pdf_path)
-
-        # Find title (usually first bold text or first line)
+        sections = extract_sections(os.path.join(pdf_dir, filename))
         title = sections[0]["heading"] if sections else filename
-
-        # Find abstract
-        abstract = ""
-        for s in sections:
-            if "abstract" in s["heading"].lower():
-                abstract = s["text"].strip()
-                break
-
+        abstract = next((s["text"].strip() for s in sections
+                         if "abstract" in s["heading"].lower()), "")
         results.append({
-            "filename": filename,
-            "title": title,
-            "abstract": abstract,
+            "filename": filename, "title": title, "abstract": abstract,
             "num_sections": len(sections),
-            "total_chars": sum(len(s["text"]) for s in sections)
+            "total_chars": sum(len(s["text"]) for s in sections),
         })
-
     with open(output_file, "w") as f:
         json.dump(results, f, indent=2)
-
     return results
 ```
 
-## Annotation Tools Comparison
+Use the same note template for every paper in the batch so the comparison matrix aligns across columns like methods, sample size, key finding, and relevance.
+
+## 7. Tools and Integration
+
+### Annotation Tools Comparison
 
 | Tool | Platform | Highlights | PDF Annotation | AI Features | Collaboration |
 |------|----------|-----------|---------------|-------------|---------------|
@@ -480,122 +303,32 @@ def process_paper_batch(pdf_dir, output_file):
 | Elicit | Web | AI paper search | No | Automated extraction | Tables |
 | Scholarcy | Web | Flashcard summaries | Yes | Auto-summarization | No |
 
-## Reading Strategies by Paper Type
-
-| Paper Type | Focus On | Time Budget |
-|-----------|----------|-------------|
-| **Seminal paper** | Full three-pass reading, understand every detail | 3-4 hours |
-| **Survey/review** | Section headings, taxonomy, open questions | 1-2 hours |
-| **Methods paper** | Algorithm/procedure sections, pseudocode, evaluation | 1-2 hours |
-| **Results paper** | Figures, tables, statistical tests, effect sizes | 30-60 min |
-| **Position paper** | Arguments, assumptions, counterarguments | 30-60 min |
-| **Related work (peripheral)** | Abstract + conclusion only (Pass 1) | 5-10 min |
-
-## Building a Paper Reading Habit
-
-1. **Set a regular schedule**: Read 2-3 papers per week during dedicated time blocks.
-2. **Maintain a reading log**: Track papers read with dates, ratings, and one-line takeaways.
-3. **Use a reference manager**: Add papers to your library as you read them, with tags and notes.
-4. **Discuss papers**: Join or start a reading group; explaining papers to others deepens understanding.
-5. **Connect to your research**: End every reading session by writing one sentence about how the paper relates to your own work.
-
----
-
-## Paper-to-Agent Exploration
-
-A skill for transforming published research papers into interactive AI agents that can answer questions, explain methodology, and help replicate findings. Based on Paper2Agent (2K stars), this skill guides the agent through extracting structured knowledge from academic papers and creating conversational interfaces for deep exploration.
-
-## Overview
-
-Traditional paper reading is linear and passive. Paper-to-Agent converts this into an active, queryable experience. By parsing a paper's structure, extracting key claims, methodology details, and results, the agent becomes an expert on that specific paper, ready to answer follow-up questions, explain complex sections, and connect findings to the broader literature.
-
-This approach is especially valuable for interdisciplinary researchers who need to quickly understand papers outside their primary expertise, for journal clubs seeking deeper discussion, and for students learning to critically evaluate published research.
-
-## Paper Parsing Workflow
-
-The agent should follow this structured workflow when converting a paper to an interactive agent:
-
-**Step 1: Structure Extraction**
-- Identify the paper's sections (abstract, introduction, methods, results, discussion, references)
-- Extract the title, authors, affiliations, and publication venue
-- Identify figure and table captions along with their referenced locations
-- Note supplementary materials and their availability
-- Detect the paper type (empirical, theoretical, review, meta-analysis)
-
-**Step 2: Claim Extraction**
-- Identify the primary research question or hypothesis
-- Extract all major claims made in the paper
-- Map each claim to its supporting evidence (data, citations, arguments)
-- Note the strength of evidence for each claim (strong, moderate, suggestive)
-- Identify limitations acknowledged by the authors
-
-**Step 3: Methodology Mapping**
-- Document the complete experimental or analytical pipeline
-- Extract parameter values, dataset descriptions, and evaluation metrics
-- Identify software tools and libraries used
-- Note any preprocessing or data cleaning steps
-- Map the methodology to established frameworks in the field
-
-## Interactive Exploration Capabilities
-
-Once a paper has been parsed, the agent can support these interaction patterns:
-
-**Question-Answering**
-- Answer specific questions about the paper's content with source references
-- Explain technical terms in context of how the paper uses them
-- Compare the paper's approach to common alternatives
-- Identify what the paper does and does not address
-- Generate summaries at different levels of detail (tweet-length, abstract, detailed)
-
-**Critical Analysis**
-- Evaluate the validity of statistical analyses
-- Identify potential confounds not addressed by the authors
-- Assess whether conclusions follow from the presented evidence
-- Compare results to related work in the field
-- Suggest follow-up experiments that would strengthen the findings
-
-**Replication Assistance**
-- Generate step-by-step replication guides from the methods section
-- Identify missing details needed for exact replication
-- Suggest parameter ranges for robustness checks
-- Create data collection templates based on the paper's design
-- List required resources (compute, data, equipment) for replication
-
-## Knowledge Graph Construction
-
-The skill supports building knowledge graphs from processed papers:
-
-- Extract entities (methods, datasets, metrics, tools, concepts)
-- Map relationships between entities (uses, extends, contradicts, supports)
-- Link to external knowledge bases (OpenAlex, CrossRef, DOI)
-- Track citation chains for key claims
-- Identify research lineages and methodological evolution
-
-## Multi-Paper Analysis
-
-When multiple papers have been processed, the agent can:
-
-- Compare methodologies across papers addressing similar questions
-- Identify consensus findings and areas of disagreement
-- Trace the evolution of a research direction over time
-- Build synthesis summaries combining evidence from multiple sources
-- Detect gaps in the literature that no existing paper addresses
-
-## Integration with Research-Claw
-
-This skill connects with other Research-Claw capabilities:
+### Integration with Other Skills
 
 - Use literature search skills to find papers for processing
 - Feed extracted knowledge into writing skills for literature reviews
 - Connect methodology details to analysis skills for replication
-- Store parsed papers in the local knowledge base for future reference
+- Store parsed papers in a local knowledge base for future reference
 - Generate citation entries compatible with reference management tools
 
-## Practical Tips
+## Pitfalls
 
-- Start with the abstract and conclusion to determine if full parsing is worthwhile
-- Focus deep extraction on methods and results sections for empirical papers
-- For theoretical papers, prioritize definitions, theorems, and proof sketches
-- Always verify extracted claims against the original text before presenting them
-- Flag areas where the paper's writing is ambiguous or inconsistent
-- Use the parsed representation to generate discussion questions for journal clubs
+- Heading heuristics (bold + font size) fail on some publisher templates — verify section boundaries against the paper's table of contents.
+- GROBID needs a running server (Docker/Java); curl calls fail with connection errors if you skip the startup step.
+- Don't skip Pass 1's decision gate — most papers only deserve a survey read.
+- Never present extracted claims without verifying them against the original text.
+- Drop figure/table captions from the parse and you lose most of a results-heavy paper's information.
+- For theoretical papers, prioritize definitions, theorems, and proof sketches over narrative text.
+- Comparing papers requires the same note template, or the fields won't align.
+- Two-column PDFs confuse naive text extraction — prefer GROBID for those layouts.
+- Flag ambiguous or inconsistent writing instead of silently guessing at the author's intent.
+
+## References
+
+- GROBID: https://github.com/kermitt2/grobid
+- PyMuPDF: https://pymupdf.readthedocs.io
+- OpenAlex API: https://api.openalex.org
+- Unpaywall API: https://unpaywall.org/products/api
+- S. Keshav, "How to Read a Paper" (2007): http://ccr.sigcomm.org/online/files/p83-keshavA.pdf
+
+Longer content (e.g., extended prompt libraries or per-field annotation tool deep-dives) can live in `references/` files within this skill directory if the main file grows beyond comfortable size.
