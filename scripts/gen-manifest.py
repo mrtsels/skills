@@ -33,7 +33,7 @@ def build_manifest():
         if cat.startswith("."):
             continue
         cdir = os.path.join(AGENTS, cat)
-        if not os.path.isdir(cdir) or cat in ("best-practices", "ego-browser"):
+        if not os.path.isdir(cdir) or cat in ("best-practices", "ego-browser", "scripts"):
             continue
         direct, bundles = collect(cdir)
         lines.append(f"### {cat}")

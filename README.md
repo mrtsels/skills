@@ -353,7 +353,6 @@
 - resume-zh-bullet-style
 - salary-negotiation-prep
 - tech-resume-optimizer
-### scripts
 ### workflow
 - demo-feedback-to-code
 - document-analysis-workflow
