@@ -26,3 +26,4 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 | [transformer-architecture-guide](./transformer-architecture-guide/SKILL.md) | Guide to Transformer architectures for NLP and computer vision |
 | [ml-web-demo](./ml-web-demo/SKILL.md) | >- |
 | [training-pipeline-debugging](./training-pipeline-debugging/SKILL.md) | Use when ML training converges (loss decreases) but evaluation metrics are worse than a tr |
+| [npcpy-research-guide](./npcpy-research-guide/SKILL.md) | All-in-one Python library for NLP, agents, and knowledge graphs |

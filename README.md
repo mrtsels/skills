@@ -71,7 +71,6 @@
 - cpp-numerics-pybind11
 - database-schema-documentation
 - distributed-systems-guide
-- hermes-s6-container-supervision
 - spring-logging
 - sql-seed-maintenance
 ### coding
@@ -108,7 +107,7 @@
 - **code-exec-skills**（bundle: google-colab-guide, kaggle-api-guide, r-reproducibility-guide, sandbox-execution-guide）
 - **data-wrangling-skills**（bundle: astrophysics-data-guide, csv-data-analyzer, data-cleaning-pipeline, data-cog-guide, data-collection-automation, json-data-visualizer, jupyter-live-kernel, jupyter-notebook-guide, pandas-data-wrangling, python-dataviz-guide, python-reproducibility-guide）
 - **math-skills**（bundle: lean-theorem-proving-guide, oeis-api, symbolic-computation-guide, topology-data-analysis）
-- **ml-engineering-skills**（bundle: ai-model-benchmarking, computer-vision-guide, huggingface-api, huggingface-inference-guide, llm-evaluation-guide, llm-from-scratch-guide, ml-experiment-tracker, ml-pipeline-guide, ml-web-demo, nlp-toolkit-guide, pytorch-guide, pytorch-lightning-guide, quantum-computing-guide, responsible-ai-guide, tensorflow-guide, training-pipeline-debugging, transformer-architecture-guide）
+- **ml-engineering-skills**（bundle: ai-model-benchmarking, computer-vision-guide, huggingface-api, huggingface-inference-guide, llm-evaluation-guide, llm-from-scratch-guide, ml-experiment-tracker, ml-pipeline-guide, ml-web-demo, nlp-toolkit-guide, npcpy-research-guide, pytorch-guide, pytorch-lightning-guide, quantum-computing-guide, responsible-ai-guide, tensorflow-guide, training-pipeline-debugging, transformer-architecture-guide）
 - **statistics-skills**（bundle: bayesian-statistics-guide, data-anomaly-detection, linear-algebra-applications, modeling-strategy-guide, numerical-methods-guide, power-analysis-guide, python-causality-guide）
 ### devops
 - aesculap-setup
@@ -117,7 +116,9 @@
 - cuhk-duo-bypass
 - docker-logging
 - docker-production-deployment
+- hermes-s6-container-supervision
 - kanban-orchestrator
+- kylin-vm-deployment
 - offline-docker-deployment
 - webhook-subscriptions
 - windows-ssh-setup
@@ -126,6 +127,8 @@
 ### email
 - agently-mail
 - agently-mail-formatting
+- coremail-imap
+- email-triage
 - himalaya
 - imap-attachment-download
 ### finance
@@ -161,9 +164,6 @@
 ### github
 - github
 - github-kb
-### infrastructure
-- coremail-imap
-- kylin-vm-deployment
 ### latex-skills
 - academic-writing-latex
 - arxiv-latex-source
@@ -246,12 +246,12 @@
 - client-proposal-generator
 - concept-map-generator
 - consulting-problem-solving
+- content-retrieval
 - document-format-conversion
 - document-sanitization
 - docx
 - docx-content-patching
 - docx-edit-rules
-- email-triage
 - finance-deck-build
 - financial-report-docx-update
 - fitness-consultation
@@ -275,6 +275,7 @@
 - weekly-business-report
 - xlsx
 - xlsx-contract-data-fill
+- zlib-ebook-download
 - **diagram-skills**（bundle: excalidraw-diagram-guide, kroki-diagram-api, mermaid-architect-guide, mermaid-diagram-guide, plantuml-guide, scientific-illustration-guide, tldraw-whiteboard-guide）
 - **document-skills**（bundle: docsgpt-guide, grobid-pdf-parsing）
 - **find-skills**（bundle）
@@ -300,35 +301,29 @@
 - citation-style-guide
 - claude-academic-workflow-guide
 - claude-scientific-guide
-- content-retrieval
 - database-comparison-guide
 - datagen-research-guide
 - dataset-finder-guide
 - deep-searcher-guide
 - google-scholar-guide
 - google-scholar-scraper
-- graphiti-guide
 - grounded-citations
 - h-index-guide
-- knowledge-graph-construction
 - large-document-reader
 - latte-review-guide
 - llm-scientific-discovery-guide
-- npcpy-research-guide
-- ontology-design-guide
 - open-access-guide
 - open-access-mining-guide
 - open-researcher-guide
 - open-science-guide
 - repository-harvesting-guide
 - research-workflow-automation
-- zlib-ebook-download
 - **automation-skills**（bundle: aim-experiment-guide, kedro-pipeline-guide, mle-agent-guide, rd-agent-guide）
 - **citation-skills**（bundle: bibtex-management-guide, jabref-reference-guide, jasminum-zotero-guide, mendeley-api, onecite-reference-guide, papersgpt-zotero-guide, papis-cli-guide, reference-manager-comparison, zotero-api, zotero-gpt-guide, zotfile-attachment-guide）
 - **deep-research-skills**（bundle: gpt-researcher-guide, in-depth-research-guide, khoj-research-guide, kosmos-scientist-guide, local-deep-research-guide, meta-synthesis-guide, scoping-review-guide, systematic-review-guide, tongyi-deep-research-guide）
 - **fulltext-skills**（bundle: bioc-pmc-api, core-api-guide, dataverse-api, doaj-api, hal-archive-api, institutional-repository-guide, interlibrary-loan-guide, osf-api, pmc-ftp-bulk-download, pmc-oai-api, preprint-servers-guide, unpaywall-api）
 - **humanities-skills**（bundle: digital-humanities-guide, ethical-philosophy-guide, history-research-guide, philosophy-research-guide, political-history-guide）
-- **knowledge-graph-skills**（bundle: notero-zotero-notion-guide, openspg-guide, rag-methodology-guide, zotero-markdb-connect-guide）
+- **knowledge-graph-skills**（bundle: graphiti-guide, knowledge-graph-construction, notero-zotero-notion-guide, ontology-design-guide, openspg-guide, rag-methodology-guide, zotero-markdb-connect-guide）
 - **research-report-skills**（bundle: quant-research-report, research-visit-memo, structured-research-report, technical-research-report）
 - **search-skills**（bundle: baidu-scholar-guide, base-academic-search, biorxiv-api, boolean-search-guide, chatpaper-guide, citeseerx-api, deep-literature-search, eric-education-api, europe-pmc-api, findpapers-guide, ieee-xplore-api, lens-scholarly-api, mesh-terms-guide, open-library-api, open-semantic-search-guide, openaire-api, openalex-api, plos-open-access-api, pubmed-api, scielo-api, semantic-scholar-api, share-research-api, systematic-search-strategy, worldcat-search-api）
 ### resume
