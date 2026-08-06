@@ -179,7 +179,6 @@
 - latex-templates-collection
 - latex-translation-guide
 - math-typesetting-guide
-- md-to-pdf-academic
 - overleaf-cli-guide
 - overleaf-collaboration-guide
 - tex-render-guide
@@ -366,6 +365,7 @@
 ### writing
 - humanizer
 - markdown-math
+- md-to-pdf-academic
 - mermaid-diagrams
 - project-handover-documentation
 - repo-documentation
@@ -385,7 +385,6 @@
 - latex-templates-collection
 - latex-translation-guide
 - math-typesetting-guide
-- md-to-pdf-academic
 - overleaf-cli-guide
 - overleaf-collaboration-guide
 - tex-render-guide
