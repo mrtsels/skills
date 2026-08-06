@@ -9,16 +9,16 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 
 | Skill | Description |
 |-------|-------------|
-| [ai-agent-papers-guide](./../../research/ai-agent-papers-guide/SKILL.md) | Curated 2024-2026 AI agent research papers collection |
+| [ai-agent-papers-guide](./../../paper/ai-agent-papers-guide/SKILL.md) | Curated 2024-2026 AI agent research papers collection |
 | [ai-model-benchmarking](./../ai-model-benchmarking/SKILL.md) | Benchmark AI models across 60+ academic evaluation suites and metrics |
-| [anomaly-detection-papers-guide](./../../research/anomaly-detection-papers-guide/SKILL.md) | Industrial anomaly detection methods and benchmark papers |
-| [autonomous-agents-papers-guide](./../../research/autonomous-agents-papers-guide/SKILL.md) | Daily-updated collection of autonomous AI agent papers |
+| [anomaly-detection-papers-guide](./../../paper/anomaly-detection-papers-guide/SKILL.md) | Industrial anomaly detection methods and benchmark papers |
+| [autonomous-agents-papers-guide](./../../paper/autonomous-agents-papers-guide/SKILL.md) | Daily-updated collection of autonomous AI agent papers |
 | [computer-vision-guide](./../computer-vision-guide/SKILL.md) | Apply computer vision research methods, models, and evaluation tools |
-| [deep-learning-papers-guide](./../../research/deep-learning-papers-guide/SKILL.md) | Annotated deep learning paper implementations with code walkthroughs |
+| [deep-learning-papers-guide](./../../paper/deep-learning-papers-guide/SKILL.md) | Annotated deep learning paper implementations with code walkthroughs |
 | [dl-transformer-finetune](./dl-transformer-finetune/SKILL.md) | Build transformer fine-tuning plans for classification and generation |
 | [domain-adaptation-papers-guide](./domain-adaptation-papers-guide/SKILL.md) | Comprehensive collection of domain adaptation research papers |
 | [generative-ai-guide](./generative-ai-guide/SKILL.md) | Curated guide to generative AI covering LLMs and diffusion models |
-| [graph-learning-papers-guide](./../../research/graph-learning-papers-guide/SKILL.md) | Conference papers on graph neural networks and graph learning |
+| [graph-learning-papers-guide](./../../paper/graph-learning-papers-guide/SKILL.md) | Conference papers on graph neural networks and graph learning |
 | [huggingface-api](./../huggingface-api/SKILL.md) | Search and discover ML models, datasets, and Spaces on Hugging Face |
 | [huggingface-inference-guide](./../huggingface-inference-guide/SKILL.md) | Run NLP and CV model inference via Hugging Face free-tier API |
 | [keras-deep-learning](./keras-deep-learning/SKILL.md) | Build and debug deep learning models with Keras and TensorFlow backend |
