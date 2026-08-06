@@ -13,14 +13,14 @@
 ~/.agents/skills/
 ├── .gitignore          # 系统垃圾 + 敏感文件排除（无 ignore-all）
 ├── README.md           # 本文件（含 skill 清单）
-├── latex-skills/       # bundle：索引 SKILL.md + 子 skill 目录
+├── latex/              # LaTeX 主题分类目录
 ├── finance/            # 分类目录
 │   └── tonghuashun/
 │       └── SKILL.md
 └── ego-browser         # 唯一 symlink（指向 /Applications/ego lite.app）
 ```
 
-分类：`academic` `agent-patterns` `apple` `automation` `autonomous-ai-agents` `backend` `coding` `creative` `data-science` `devops` `email` `finance` `frontend` `github` `infrastructure` `latex-skills` `mcp` `note-taking` `paper` `productivity` `research` `resume` `workflow` `writing`
+分类：`academic` `agent-patterns` `apple` `automation` `autonomous-ai-agents` `backend` `coding` `creative` `data-science` `devops` `email` `finance` `frontend` `github` `infrastructure` `latex` `mcp` `note-taking` `paper` `productivity` `research` `resume` `workflow` `writing`
 
 ## Skill 清单
 
@@ -164,7 +164,7 @@
 ### github
 - github
 - github-kb
-### latex-skills
+### latex
 - academic-writing-latex
 - arxiv-latex-source
 - arxiv-preprint-template
@@ -370,7 +370,7 @@
 - project-handover-documentation
 - repo-documentation
 - simplified-technical-english
-### latex-skills
+### latex
 - academic-writing-latex
 - arxiv-latex-source
 - arxiv-preprint-template

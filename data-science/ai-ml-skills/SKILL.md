@@ -27,7 +27,7 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 | [llm-from-scratch-guide](./../ml-engineering-skills/llm-from-scratch-guide/SKILL.md) | Build a ChatGPT-like LLM from scratch using PyTorch step by step |
 | [ml-pipeline-guide](./../ml-engineering-skills/ml-pipeline-guide/SKILL.md) | Build and deploy reproducible production ML pipelines for research |
 | [nlp-toolkit-guide](./../ml-engineering-skills/nlp-toolkit-guide/SKILL.md) | NLP analysis with perplexity scoring, burstiness, and entropy metrics |
-| [npcpy-research-guide](./../npcpy-research-guide/SKILL.md) | All-in-one Python library for NLP, agents, and knowledge graphs |
+| [npcpy-research-guide](./../ml-engineering-skills/npcpy-research-guide/SKILL.md) | All-in-one Python library for NLP, agents, and knowledge graphs |
 | [prompt-engineering-research](./prompt-engineering-research/SKILL.md) | Systematic prompt engineering methods for AI-assisted academic research workf... |
 | [pytorch-guide](./../ml-engineering-skills/pytorch-guide/SKILL.md) | Avoid common PyTorch mistakes and apply robust training patterns |
 | [pytorch-lightning-guide](./../ml-engineering-skills/pytorch-lightning-guide/SKILL.md) | PyTorch Lightning framework for scalable model training and research |

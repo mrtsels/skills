@@ -9,7 +9,7 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 
 | Skill | Description |
 |-------|-------------|
-| [arxiv-latex-source](./../../latex-skills/arxiv-latex-source/SKILL.md) | Download and parse LaTeX source files from arXiv preprints |
+| [arxiv-latex-source](./../../latex/arxiv-latex-source/SKILL.md) | Download and parse LaTeX source files from arXiv preprints |
 | [bioc-pmc-api](./bioc-pmc-api/SKILL.md) | Access PMC Open Access articles in BioC format for text mining |
 | [core-api-guide](./core-api-guide/SKILL.md) | Search and retrieve open access research papers via CORE aggregator |
 | [dataverse-api](./dataverse-api/SKILL.md) | Deposit and discover research datasets via Harvard Dataverse API |

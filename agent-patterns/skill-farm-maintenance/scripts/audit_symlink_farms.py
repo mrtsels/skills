@@ -9,7 +9,7 @@ symlink farms pointing back into it. This script reports:
   3. duplicate skill basenames across Hermes load paths
 
 Note: os.walk does not follow symlinked dirs, so bundle members (e.g.
-latex-skills/latex-debugging) are not listed as separate load paths — check
+latex/latex-debugging) are not listed as separate load paths — check
 bundle content directly at ~/.agents/skills/<bundle>/<name> if needed.
 
 Usage: python3 audit_symlink_farms.py

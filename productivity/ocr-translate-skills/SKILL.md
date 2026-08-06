@@ -10,8 +10,8 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 | Skill | Description |
 |-------|-------------|
 | [handwriting-recognition-guide](./../ocr-document-skills/handwriting-recognition-guide/SKILL.md) | Apply handwriting OCR to digitize historical and archival documents |
-| [latex-ocr-guide](./../../latex-skills/latex-ocr-guide/SKILL.md) | Extract and convert mathematical formulas from images and PDFs to LaTeX code |
-| [latex-translation-guide](./../../latex-skills/latex-translation-guide/SKILL.md) | Translate LaTeX documents preserving math formulas and structure |
+| [latex-ocr-guide](./../../latex/latex-ocr-guide/SKILL.md) | Extract and convert mathematical formulas from images and PDFs to LaTeX code |
+| [latex-translation-guide](./../../latex/latex-translation-guide/SKILL.md) | Translate LaTeX documents preserving math formulas and structure |
 | [multilingual-research-guide](./multilingual-research-guide/SKILL.md) | Strategies for translating academic papers while preserving technical accuracy |
 | [pdf-math-translate-guide](./../pdf-math-translate-guide/SKILL.md) | Translate scientific PDFs with preserved math formatting via PDFMathTranslate |
 | [zotero-pdf-translate-guide](./../../note-taking/zotero-pdf-translate-guide/SKILL.md) | Guide to Zotero PDF Translate for multilingual PDF and annotation translation |

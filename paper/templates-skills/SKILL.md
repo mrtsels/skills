@@ -9,8 +9,8 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 
 | Skill | Description |
 |-------|-------------|
-| [arxiv-preprint-template](./../../latex-skills/arxiv-preprint-template/SKILL.md) | LaTeX template for arXiv preprints in NIPS/NeurIPS style format |
-| [beamer-presentation-guide](./../../latex-skills/beamer-presentation-guide/SKILL.md) | Guide to creating academic presentations with LaTeX Beamer |
+| [arxiv-preprint-template](./../../latex/arxiv-preprint-template/SKILL.md) | LaTeX template for arXiv preprints in NIPS/NeurIPS style format |
+| [beamer-presentation-guide](./../../latex/beamer-presentation-guide/SKILL.md) | Guide to creating academic presentations with LaTeX Beamer |
 | [conference-paper-template](./../conference-paper-template/SKILL.md) | Templates and formatting guides for major academic conference submissions |
 | [elegant-paper-template](./elegant-paper-template/SKILL.md) | Beautiful LaTeX template for working papers and technical reports |
 | [graphical-abstract-guide](./../graphical-abstract-guide/SKILL.md) | Create SVG graphical abstracts for journal paper submissions |

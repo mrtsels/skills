@@ -44,7 +44,7 @@ def build_manifest():
                 lines.append(f"- **{b}**（bundle: {', '.join(children)}）")
             else:
                 lines.append(f"- **{b}**（bundle）")
-    lsp = os.path.join(AGENTS, "latex-skills")
+    lsp = os.path.join(AGENTS, "latex")
     latex = sorted(
         x for x in os.listdir(lsp)
         if not x.startswith(".")
@@ -52,7 +52,7 @@ def build_manifest():
         and not os.path.islink(os.path.join(lsp, x))
         and os.path.isfile(os.path.join(lsp, x, "SKILL.md"))
     )
-    lines.append("### latex-skills")
+    lines.append("### latex")
     for x in latex:
         lines.append(f"- {x}")
     return "\n".join(lines)
