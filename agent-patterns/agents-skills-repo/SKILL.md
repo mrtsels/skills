@@ -25,6 +25,8 @@ For cc-switch (the desktop skill manager) internals — storage modes, per-app d
 
 ## .gitignore Pattern
 
+> **SUPERSEDED 2026-08-06**: the repo now tracks ALL skill content; `.gitignore` is explicit exclusions only (system junk, nested `.git/`, sensitive dirs/files). The ignore-all+allowlist mode below is retired. Authoritative current workflow: the `skill-farm-maintenance` skill (audit script + PII gate).
+
 ```gitignore
 # Ignore everything except the manifest files and skill stand-ins (symlinks)
 *
