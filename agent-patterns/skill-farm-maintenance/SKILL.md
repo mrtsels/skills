@@ -50,6 +50,20 @@ When the top level of `.agents/skills` is a flat pile of 200+ standalone skills,
 6. Keep top-level bundles (`latex-skills/`) and their stand-in symlinks in place; `best-practices/` (docs wiki) stays ignored.
 7. Verify: `hermes skills list` count DROPS by the number of sensitive skills that stay ignored (181→171 here — expected, they're still local, just untracked); all farm symlinks resolve.
 
+## Merging two overlapping skills (user preference: blend BY TOPIC)
+
+Trigger: user says two skills "应该合并（包括原始的），统一改".
+
+1. **Backup both originals first**: `cp -R <cat>/<a> <cat>/<b> → /tmp/skill-merge-backup-<ts>/`.
+2. **Merge into the primary skill** — keep the one that is auto_inject/mandatory/has the trigger; fold the other's content in as sections.
+3. **USER PREFERENCE (explicit correction): blend merged content BY TOPIC — do NOT split into "第一部分/第二部分" labeled sections.** Write unified topic sections (Chinese and English rules side by side inside each topic); only the verbatim absorbed original goes to `references/<name>-full.md`.
+4. Copy any LICENSE into `references/` and keep attribution (original author, upstream repo, version).
+5. Delete the absorbed dir; remove its farm symlinks; regenerate manifest + `.gitignore` exclusions if any.
+6. `git add <explicit paths> && git commit && git push`; tell the user the backup location.
+7. **Overlap warning:** check for a THIRD overlapping skill (e.g. `ai-writing-humanizer` overlapping humanizer) and flag it — don't merge unprompted.
+
+**Merging narrow siblings INTO an existing umbrella** (github pattern): copy each absorbed SKILL.md → umbrella `references/<name>.md`, add References-table rows, append a compact summary section to the umbrella SKILL.md, then delete the standalone skills (both SSOT and farm symlinks). Example: `install-skill-from-github` + `install-binary-from-github-releases` → `github/` references + a "## N. Install from GitHub" section.
+
 ## Pitfalls
 
 - A loaded skill describing the library architecture may lag a recent flip — confirm current layout from `git log` + `ls -la` before acting on it.

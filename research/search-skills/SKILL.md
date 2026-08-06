@@ -9,23 +9,23 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 
 | Skill | Description |
 |-------|-------------|
-| [arxiv-api](./arxiv-api/SKILL.md) | Search and retrieve preprints from the arXiv open-access repository |
-| [arxiv-batch-reporting](./arxiv-batch-reporting/SKILL.md) | Batch search and report generation from arXiv preprint repository |
-| [arxiv-cli-tools](./arxiv-cli-tools/SKILL.md) | Command-line tools for searching and batch-downloading arXiv papers |
-| [arxiv-paper-processor](./arxiv-paper-processor/SKILL.md) | Process and analyze arXiv papers systematically for research workflows |
+| [arxiv-api](./../arxiv-api/SKILL.md) | Search and retrieve preprints from the arXiv open-access repository |
+| [arxiv-batch-reporting](./../arxiv-batch-reporting/SKILL.md) | Batch search and report generation from arXiv preprint repository |
+| [arxiv-cli-tools](./../arxiv-cli-tools/SKILL.md) | Command-line tools for searching and batch-downloading arXiv papers |
+| [arxiv-paper-processor](./../arxiv-paper-processor/SKILL.md) | Process and analyze arXiv papers systematically for research workflows |
 | [baidu-scholar-guide](./baidu-scholar-guide/SKILL.md) | Using Baidu Scholar for Chinese and English academic literature search |
 | [base-academic-search](./base-academic-search/SKILL.md) | Search 400M+ open access documents via the BASE search engine API |
 | [biorxiv-api](./biorxiv-api/SKILL.md) | Preprint server API for biology and medicine papers |
 | [boolean-search-guide](./boolean-search-guide/SKILL.md) | Master Boolean operators and advanced search syntax for academic databases |
 | [chatpaper-guide](./chatpaper-guide/SKILL.md) | Use ChatPaper to summarize and search arXiv papers with LLM assistance |
-| [citation-chaining-guide](./citation-chaining-guide/SKILL.md) | Forward and backward citation chaining techniques for literature search |
+| [citation-chaining-guide](./../citation-chaining-guide/SKILL.md) | Forward and backward citation chaining techniques for literature search |
 | [citeseerx-api](./citeseerx-api/SKILL.md) | Search computer science literature via the CiteSeerX digital library |
-| [database-comparison-guide](./database-comparison-guide/SKILL.md) | Compare major academic databases and when to use each for research |
+| [database-comparison-guide](./../database-comparison-guide/SKILL.md) | Compare major academic databases and when to use each for research |
 | [deep-literature-search](./deep-literature-search/SKILL.md) | Multi-source exhaustive literature search across academic databases |
 | [eric-education-api](./eric-education-api/SKILL.md) | Search 2M+ education research records via the ERIC database API |
 | [europe-pmc-api](./europe-pmc-api/SKILL.md) | Search biomedical and life sciences literature via Europe PMC |
 | [findpapers-guide](./findpapers-guide/SKILL.md) | Search multiple academic databases simultaneously with Findpapers |
-| [google-scholar-guide](./google-scholar-guide/SKILL.md) | Advanced Google Scholar search techniques for comprehensive literature discovery |
+| [google-scholar-guide](./../google-scholar-guide/SKILL.md) | Advanced Google Scholar search techniques for comprehensive literature discovery |
 | [ieee-xplore-api](./ieee-xplore-api/SKILL.md) | Search IEEE's 6M+ engineering and CS publications via the Xplore API |
 | [lens-scholarly-api](./lens-scholarly-api/SKILL.md) | Search 300M+ scholarly and patent records via the Lens.org API |
 | [mesh-terms-guide](./mesh-terms-guide/SKILL.md) | Navigate MeSH vocabulary for precise PubMed and MEDLINE searches |
