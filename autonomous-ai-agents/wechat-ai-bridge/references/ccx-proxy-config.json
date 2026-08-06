@@ -1,0 +1,36 @@
+{
+  "weclaw_config": {
+    "path": "~/.weclaw/config.json",
+    "default_agent": "claude",
+    "agents": {
+      "claude": {
+        "type": "cli",
+        "command": "/opt/homebrew/bin/claude",
+        "args": ["-p", "--dangerously-skip-permissions", "--output-format", "json"],
+        "env": {
+          "ANTHROPIC_BASE_URL": "http://localhost:3000",
+          "ANTHROPIC_API_KEY": "061127",
+          "ANTHROPIC_MODEL": "claude-sonnet-4-6",
+          "ANTHROPIC_SMALL_FAST_MODEL": "claude-haiku-4-5",
+          "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-6",
+          "ANTHROPIC_DEFAULT_SONNET_MODEL_NAME": "deepseek-v4-flash",
+          "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5",
+          "ANTHROPIC_DEFAULT_HAIKU_MODEL_NAME": "deepseek-v4-flash",
+          "CLAUDE_CODE_SIMPLE": "1"
+        },
+        "aliases": ["cc", "ai"]
+      },
+      "codex": {
+        "type": "cli",
+        "command": "/opt/homebrew/bin/codex",
+        "args": ["exec", "--sandbox", "none"],
+        "aliases": ["cx"]
+      }
+    }
+  },
+  "notes": {
+    "ccx_proxy_url": "http://localhost:3000",
+    "ccx_api_key": "061127",
+    "model_mapping": "claude-sonnet-4-6 → deepseek-v4-flash (via CCX translation)"
+  }
+}

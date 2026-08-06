@@ -1,0 +1,13 @@
+{
+  "name": "wechat-article-search",
+  "version": "1.0.0",
+  "description": "Search WeChat public account articles by keyword",
+  "main": "scripts/search_wechat.js",
+  "scripts": {
+    "search": "node scripts/search_wechat.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  },
+  "license": "MIT"
+}

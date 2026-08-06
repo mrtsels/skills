@@ -1,0 +1,95 @@
+{
+  "version": "1.0.0",
+  "meta": {
+    "uuid": "550e8400-e29b-41d4-a716-44665544000100",
+    "name": "PDF 转换为长图片",
+    "description": "将 PDF 文件转换并拼接为一张长图片，类似幻灯片效果",
+    "author": "OpenClaw AI Assistant",
+    "icon": "📄",
+    "category": "工具",
+    "tags": ["PDF", "图片", "转换", "文档", "幻灯片"],
+    "language": "Python",
+    "framework": "pdf2image, Pillow"
+  },
+  "intents": {
+    "pdf_convert": {
+      "name": "PDF 转换",
+      "description": "将 PDF 文件转换为长图片",
+      "slots": [
+        {
+          "name": "pdf_file",
+          "type": "string",
+          "required": true,
+          "description": "PDF 文件路径或 URL",
+          "examples": [
+            "/path/to/input.pdf",
+            "https://example.com/document.pdf"
+          ]
+        },
+        {
+          "name": "dpi",
+          "type": "integer",
+          "required": false,
+          "description": "转换 DPI (默认: 150, 越高质量越好但文件越大)",
+          "default": 150,
+          "examples": [150, 200, 300]
+        },
+        {
+          "name": "spacing",
+          "type": "integer",
+          "required": false,
+          "description": "图片间距 (像素, 默认: 10)",
+          "default": 10,
+          "examples": [5, 10, 15, 20]
+        }
+      ],
+      "examples": [
+        {
+          "description": "基本转换",
+          "slots": {
+            "pdf_file": "input.pdf"
+          }
+        },
+        {
+          "description": "高质量转换",
+          "slots": {
+            "pdf_file": "document.pdf",
+            "dpi": 200,
+            "spacing": 15
+          }
+        }
+      ]
+    }
+  },
+  "endpoints": {
+    "api": {
+      "convert": {
+        "method": "POST",
+        "path": "/api/convert",
+        "description": "PDF 转 API 接口",
+        "request": {
+          "pdf_file": "string (required)",
+          "dpi": "integer (optional, default 150)",
+          "spacing": "integer (optional, default 10)"
+        },
+        "response": {
+          "success": "boolean",
+          "output_path": "string",
+          "file_size_mb": "number",
+          "pages": "integer",
+          "width": "integer",
+          "height": "integer"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "python": ">=3.9",
+    "pdf2image": ">=1.16.0",
+    "Pillow": ">=9.0.0"
+  },
+  "installation": {
+    "pip": "pip install pdf2image pillow",
+    "system": "Linux/Windows/MacOS"
+  }
+}

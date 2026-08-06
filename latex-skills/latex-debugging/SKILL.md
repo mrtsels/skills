@@ -215,9 +215,9 @@ User wants the PDF properties (Creator AND Producer included) to show their name
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, ...,
     pdftitle={...},
-    pdfauthor={Alex Licheng Xie},
-    pdfcreator={Alex Licheng Xie},
-    pdfproducer={Alex Licheng Xie}}
+    pdfauthor={{Author Name}},
+    pdfcreator={{Author Name}},
+    pdfproducer={{Author Name}}}
 ```
 Verified: `pdfinfo` shows all four overridden.
 
@@ -226,9 +226,9 @@ Verified: `pdfinfo` shows all four overridden.
 % LuaTeX ≥1.10: \pdfinfo was REMOVED → use \pdfextension info
 \pdfextension info {
   /Title (...)
-  /Author (Alex Licheng Xie)
-  /Creator (Alex Licheng Xie)
-  /Producer (Alex Licheng Xie)
+  /Author ({Author Name})
+  /Creator ({Author Name})
+  /Producer ({Author Name})
 }
 \end{document}
 ```
