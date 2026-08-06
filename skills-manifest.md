@@ -1,6 +1,6 @@
 # Skills Manifest
 
-SSOT 目录 `~/.agents/skills/` 的 skill 清单（共 263 个，含 symlink 替身）。
+SSOT 目录 `~/.agents/skills/` 的 skill 清单（共 262 个，含 symlink 替身）。
 Skill 内容不入库（见 .gitignore），仅维护清单。
 
 - 生成时间: 2026-08-06
@@ -127,7 +127,6 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - huggingface-api
 - huggingface-inference-guide
 - humanities-skills
-- humanizer
 - image-to-code
 - imagegen-frontend-mobile
 - imagegen-frontend-web
