@@ -19,9 +19,9 @@ apple/internal-device-access/
 apple/macos-network-diagnostics/
 devops/yuecai-scanner-download/
 email/imap-attachment-download/
-infrastructure/coremail-imap/
-infrastructure/kylin-vm-deployment/
-productivity/email-triage/
+email/coremail-imap/
+devops/kylin-vm-deployment/
+email/email-triage/
 software-development/extjs-api-discovery/
 devops/windows-thinkpad/
 workflow/fuji-xerox-scanner-access/
