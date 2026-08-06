@@ -227,7 +227,7 @@ SSOT 目录 `~/.agents/skills/` 的 skill 清单（分类结构与 Hermes 一致
 - saas-replacement-planner
 - search-skills
 - social-media-clients
-- software-development/ (33 skills)
+- software-development/ (32 skills)
 - sow-generator
 - stitch-design-taste
 - summarize-slides
