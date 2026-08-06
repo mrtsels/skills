@@ -53,7 +53,7 @@ When the top level of `.agents/skills` is a flat pile of 200+ standalone skills,
 3. **Move with `shutil.move` per entry, then rebuild every farm symlink** that pointed at the old flat path: `.claude/skills` (flat names → `../../.agents/skills/<cat>/<name>`) and `.hermes/skills` top-level links (→ `../../.agents/skills/<cat>/<name>`). Both farms break en masse otherwise. Depth stays `../../` for flat→category (`.claude` root → `.agents` root), only category-nested links use `../../../`.
 4. **Git handles the move as renames**: `git add` the new top-level entries, then `git add -u` stages deletions; `git diff --cached --name-status -M` shows ~100% renames, 0 D/A churn. One commit covers the whole migration.
 5. **Update `.gitignore` paths for any sensitive dir that moved** (e.g. `agently-mail/` → `email/agently-mail/`, `kylin-vm-deployment/` → `infrastructure/kylin-vm-deployment/`). Forgetting this silently un-ignores the sensitive dir at its new path.
-6. Keep top-level bundles (`latex/`) and their stand-in symlinks in place; `best-practices/` (docs wiki) stays ignored.
+6. Keep top-level bundles (`latex/`) and their stand-in symlinks in place; `best-practices/` (docs wiki) was deleted 2026-08-06.
 7. Verify: `hermes skills list` count DROPS by the number of sensitive skills that stay ignored (181→171 here — expected, they're still local, just untracked); all farm symlinks resolve.
 
 ## Merging two overlapping skills (user preference: blend BY TOPIC)
@@ -74,7 +74,7 @@ Trigger: user says two skills "应该合并（包括原始的），统一改".
 
 - A loaded skill describing the library architecture may lag a recent flip — confirm current layout from `git log` + `ls -la` before acting on it.
 - Moving a symlink into a subdir breaks its relative target — recompute depth (`../../` → `../../../`).
-- `best-practices/` is a docs wiki (no top-level SKILL.md), NOT a skill — flag to user, don't silently delete.
+- `best-practices/` was a docs wiki (no top-level SKILL.md), NOT a skill — **deleted 2026-08-06** (third-party wiki, its 9 nested example SKILL.md were polluting `hermes skills list`). Don't recreate; flag any future clone instead.
 - Not every dir is a skill: bundles (latex, best-practices) and category shells have no top SKILL.md; count sub-skills instead.
 - **`for e in *; do git add -- "$e"; done` skips dotfiles** — `.gitignore` changes are NOT staged by the top-level-entry loop. `git add .gitignore` explicitly or the "disable global ignore / add sensitive exclusions" commit silently never lands (happened 2026-08-06: gitignore rewrite was committed separately after the content commit).
 - **Sensitive `.gitignore` paths go stale when dirs move categories** — a dir-level ignore (`agently-mail/`) stops matching after `email/agently-mail/`. After any reorg, grep the tracked file list for the sensitive dir names, not the old paths.

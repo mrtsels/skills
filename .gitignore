@@ -9,8 +9,7 @@ private/
 # ===== 嵌套 git 仓库（避免被当作 gitlink，内容需入库）=====
 consulting-problem-solving/.git/
 
-# ===== 非 skill 文档仓库（claude-code-best-practices wiki，无 SKILL.md）=====
-best-practices/
+# best-practices/ 已删除 2026-08-06（第三方 wiki，非 skill）
 
 # ===== 敏感内容：内部专用 skill 目录（粤财/衡泰/内网/个人凭据，整体不入库）=====
 software-development/extjs-api-discovery/
