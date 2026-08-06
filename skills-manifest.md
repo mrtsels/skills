@@ -1,6 +1,6 @@
 # Skills Manifest
 
-SSOT 目录 `~/.agents/skills/` 的 skill 清单（共 262 个，含 symlink 替身）。
+SSOT 目录 `~/.agents/skills/` 的 skill 清单（共 260 个，含 symlink 替身）。
 Skill 内容不入库（见 .gitignore），仅维护清单。
 
 - 生成时间: 2026-08-06
@@ -119,9 +119,7 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - grounded-citations
 - h-index-guide
 - handwriting-recognition-guide
-- hermes-desktop-plugins
 - hermes-for-agents
-- hermes-themes
 - high-end-visual-design
 - holographic-memory-migration
 - huggingface-api
