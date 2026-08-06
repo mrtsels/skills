@@ -9,7 +9,7 @@ SSOT 目录 `~/.agents/skills/` 的 skill 清单（分类结构与 Hermes 一致
 
 - academic/ (40 skills)
 - academic-writing-latex
-- agent-patterns/ (3 skills)
+- agent-patterns/ (4 skills)
 - apple/ (12 skills)
 - arxiv-latex-source
 - arxiv-preprint-template

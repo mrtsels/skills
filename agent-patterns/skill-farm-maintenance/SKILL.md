@@ -1,0 +1,50 @@
+---
+name: skill-farm-maintenance
+description: "Use when organizing skill library: post-flip farm upkeep."
+---
+
+# Skill Farm Maintenance (post-2026-08 flip)
+
+Trigger: user asks to 整理/组织/归位 the skill library, or anything touching the layout of `~/.agents/skills`, `~/.hermes/skills`, `~/.claude/skills`, `~/.Codex/skills`.
+
+## Architecture (verify with `git log` before trusting any doc)
+
+- `~/.agents/skills/` — SSOT 真身. Real skill content with Hermes category nesting (`writing/humanizer`, `software-development/<name>`). Git repo (mrtsels/agents-skills). **Since 2026-08-06: tracks ALL skill content (1200+ files)** — the old ignore-all+allowlist mode is retired. `.gitignore` now carries explicit exclusions only (system junk, nested `.git/`, sensitive dirs/files). Stand-in symlinks tracked automatically (mode 120000). See `references/pii-credential-gate.md` for the mandatory pre-commit privacy sweep.
+- `~/.hermes/skills/` — pure symlink farm → `.agents`. Category dirs are real shells holding deep-adaptive relative links (`../../../.agents/skills/<cat>/<name>`); top-level skills use `../../.agents/skills/<name>`. No real skill content (only `.archive/`, `.hub/`, curator state).
+- `~/.claude/skills/` — symlink farm → `.agents` (flat names; categorized skills link to their category path, e.g. `../../.agents/skills/productivity/docx`).
+- Pre-flip layout (real content in `.hermes`, stand-ins in `.agents`) is OBSOLETE. Older skills may still describe it — cross-check the filesystem and `git log` before acting on them.
+
+## Maintenance workflow
+
+1. Backup first: `cp -R` affected dirs → `/tmp/skill-reorg-backup-<ts>/`. Ops are destructive (rm -rf real dirs); user wants recoverable.
+2. Audit the farms: `python3 scripts/audit_symlink_farms.py` — broken symlinks, real (non-symlink) skill dirs left in farms, duplicate skill names across Hermes load paths.
+3. Real dirs in a farm = drift → `diff -rq` against the SSOT copy; identical → replace with a relative symlink.
+4. Version drift between farm copy and SSOT: diff both directions. SSOT usually wins (Hermes-adapted frontmatter: short description, `metadata: hermes`, category). BUT watch for botched blanket sed — a Claude→Codex replace corrupted SSOT descriptions ("Codex, Codex" typo in hermes-for-agents) while the `.claude` copy kept the correct original. Fix the SSOT typo in place; never adopt the stale farm copy wholesale.
+5. Dedupe reorg `cp -R` copies: latex-debugging existed in BOTH `software-development/` and `latex-skills/`. Keep the git-tracked bundle copy, remove the other + its `.hermes` symlink, verify `hermes skills list | grep -c <name>` == 1.
+6. Archive, don't delete: legacy Codex-only skills → `~/.Codex/skills/.archive/` (never touch `.system/` or app-owned symlinks); empty category stubs (only DESCRIPTION.md) → `~/.hermes/skills/.archive/legacy-categories/`.
+7. Verify: `hermes skills list` (count + error scan), every farm symlink resolves to a SKILL.md. NOTE: `os.walk` does NOT follow symlinked dirs — to confirm a bundle member (e.g. `latex-skills/latex-debugging`) check the SSOT path directly, not by walking `~/.hermes/skills`.
+8. Git: regenerate `skills-manifest.md` (top-level entries + `cat/ (N skills)` lines + symlinks), `git add skills-manifest.md` only (no `git add .`/`-A`), commit, push.
+9. **PII/credential gate before any commit** (repo tracks all content now): scan `git ls-files` for user PII (names/emails/passwords/internal IPs), triage false positives, sanitize tracked files in place or add explicit `.gitignore` exclusions — see `references/pii-credential-gate.md`.
+
+## Categorizing flat skills into topic categories (validated 2026-08-06, 211 skills → 20 categories)
+
+When the top level of `.agents/skills` is a flat pile of 200+ standalone skills, migrate them into Hermes category dirs:
+
+1. **Cluster by description, not by name**: read each `SKILL.md` `description:` frontmatter and group by theme. The categories that emerged: finance (new), academic, research, note-taking, data-science, software-development, creative, productivity, autonomous-ai-agents, apple, email, github, resume, infrastructure, devops, workflow, writing.
+2. **Watch for bundle duplication BEFORE moving**: ~17 bundle dirs (ai-ml-skills, citation-skills, search-skills, …) contain an index `SKILL.md` AND sub-skill dirs that ALSO exist flat at top level (91 identical duplicates found — `filecmp` verified 32/32 identical). The bundles are aggregation indexes; the flat copies are what Claude Code discovers. Move the FLAT copies into categories; leave the bundle dirs intact (they keep working as indexes).
+3. **Move with `shutil.move` per entry, then rebuild every farm symlink** that pointed at the old flat path: `.claude/skills` (flat names → `../../.agents/skills/<cat>/<name>`) and `.hermes/skills` top-level links (→ `../../.agents/skills/<cat>/<name>`). Both farms break en masse otherwise. Depth stays `../../` for flat→category (`.claude` root → `.agents` root), only category-nested links use `../../../`.
+4. **Git handles the move as renames**: `git add` the new top-level entries, then `git add -u` stages deletions; `git diff --cached --name-status -M` shows ~100% renames, 0 D/A churn. One commit covers the whole migration.
+5. **Update `.gitignore` paths for any sensitive dir that moved** (e.g. `agently-mail/` → `email/agently-mail/`, `kylin-vm-deployment/` → `infrastructure/kylin-vm-deployment/`). Forgetting this silently un-ignores the sensitive dir at its new path.
+6. Keep top-level bundles (`latex-skills/`) and their stand-in symlinks in place; `best-practices/` (docs wiki) stays ignored.
+7. Verify: `hermes skills list` count DROPS by the number of sensitive skills that stay ignored (181→171 here — expected, they're still local, just untracked); all farm symlinks resolve.
+
+## Pitfalls
+
+- A loaded skill describing the library architecture may lag a recent flip — confirm current layout from `git log` + `ls -la` before acting on it.
+- Moving a symlink into a subdir breaks its relative target — recompute depth (`../../` → `../../../`).
+- `best-practices/` is a docs wiki (no top-level SKILL.md), NOT a skill — flag to user, don't silently delete.
+- Not every dir is a skill: bundles (latex-skills, best-practices) and category shells have no top SKILL.md; count sub-skills instead.
+- **`for e in *; do git add -- "$e"; done` skips dotfiles** — `.gitignore` changes are NOT staged by the top-level-entry loop. `git add .gitignore` explicitly or the "disable global ignore / add sensitive exclusions" commit silently never lands (happened 2026-08-06: gitignore rewrite was committed separately after the content commit).
+- **Sensitive `.gitignore` paths go stale when dirs move categories** — a dir-level ignore (`agently-mail/`) stops matching after `email/agently-mail/`. After any reorg, grep the tracked file list for the sensitive dir names, not the old paths.
+- Nested `.git` dirs in cloned bundles (best-practices, consulting-problem-solving) are treated as gitlinks — add `<dir>/.git/` to `.gitignore` so their content tracks instead.
+- Skill counts in `hermes skills list` legitimately DROP when sensitive skills stay gitignored — expected, not a regression.

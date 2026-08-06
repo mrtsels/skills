@@ -44,3 +44,4 @@ devops/ccx-proxy-setup/references/proxy-connection-verification.md
 devops/docker-production-deployment/references/dashscope-ip-mapping.md
 devops/offline-docker-deployment/references/enterprise-mvp-deployment.md
 devops/windows-ssh-setup/references/kylin-vm-thinkpad.md
+agent-patterns/skill-farm-maintenance/references/pii-credential-gate.md
