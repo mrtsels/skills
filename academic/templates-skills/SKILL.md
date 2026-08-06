@@ -18,5 +18,5 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 | [scientific-article-pdf](./scientific-article-pdf/SKILL.md) | Generate publication-ready scientific article PDFs from templates |
 | [sjtuthesis-guide](./sjtuthesis-guide/SKILL.md) | Write SJTU theses using the SJTUThesis LaTeX template with full compliance |
 | [thesis-template-guide](./thesis-template-guide/SKILL.md) | Set up LaTeX templates for PhD and Master's thesis documents |
-| [thesis-writing-guide](./../thesis-writing-guide/SKILL.md) | Templates, formatting rules, and strategies for thesis and dissertation writing |
+| [thesis-writing-guide](./../academic-writing-skills/thesis-writing-guide/SKILL.md) | Templates, formatting rules, and strategies for thesis and dissertation writing |
 | [thuthesis-guide](./thuthesis-guide/SKILL.md) | Write Tsinghua University theses using the ThuThesis LaTeX template |
