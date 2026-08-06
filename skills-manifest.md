@@ -84,7 +84,6 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - datagen-research-guide
 - dataset-finder-guide
 - de-ai-ify-code
-- de-ai-ify-writing
 - deep-learning-papers-guide
 - deep-research-skills
 - deep-searcher-guide
@@ -125,6 +124,7 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - huggingface-api
 - huggingface-inference-guide
 - humanities-skills
+- humanizer
 - image-to-code
 - imagegen-frontend-mobile
 - imagegen-frontend-web

@@ -7,7 +7,6 @@
 !bash-cli-patterns
 !cron-agent-flow
 !de-ai-ify-code
-!de-ai-ify-writing
 !document-format-conversion
 !docx-content-patching
 !dynamic-workflow
@@ -16,6 +15,7 @@
 !github
 !grounded-citations
 !holographic-memory-migration
+!humanizer
 !install-agent-cli-tool
 !install-binary-from-github-releases
 !install-skill-from-github
