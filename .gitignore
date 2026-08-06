@@ -1,9 +1,10 @@
-# Ignore everything except the manifest files and skill stand-ins (symlinks)
+# Ignore everything except the manifest files, skill stand-ins (symlinks), and the latex-skills bundle
 *
 !.gitignore
 !README.md
 !skills-manifest.md
 !ego-browser
 
-# latex-skills bundle: index SKILL.md + sub-skill symlink stand-ins
+# latex-skills bundle: tracked in full (real content)
 !latex-skills/
+!latex-skills/**
