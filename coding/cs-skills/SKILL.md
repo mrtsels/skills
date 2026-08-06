@@ -13,7 +13,7 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 | [algorithms-complexity-guide](./../algorithms-complexity-guide/SKILL.md) | Analyze algorithm complexity and computational efficiency for research |
 | [code-llm-papers-guide](./../../paper/code-llm-papers-guide/SKILL.md) | Survey and paper collection on LLMs for code generation |
 | [dblp-api](./dblp-api/SKILL.md) | Search computer science publications, authors, and venues via DBLP |
-| [distributed-systems-guide](./../distributed-systems-guide/SKILL.md) | Distributed systems design patterns and analysis for CS research |
+| [distributed-systems-guide](./../../backend/distributed-systems-guide/SKILL.md) | Distributed systems design patterns and analysis for CS research |
 | [formal-verification-guide](./formal-verification-guide/SKILL.md) | Formal methods, theorem proving, and model checking for CS research |
 | [gaussian-splatting-papers-guide](./../../paper/gaussian-splatting-papers-guide/SKILL.md) | Curated papers and resources for 3D Gaussian Splatting |
 | [llm-aiops-guide](./../../paper/llm-aiops-guide/SKILL.md) | Papers on LLMs for IT operations and AIOps research |

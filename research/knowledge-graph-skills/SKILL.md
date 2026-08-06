@@ -10,7 +10,7 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 | Skill | Description |
 |-------|-------------|
 | [citation-network-builder](./../citation-network-builder/SKILL.md) | Build and analyze citation networks from academic reference data |
-| [concept-map-generator](./../../software-development/concept-map-generator/SKILL.md) | Generate structured concept maps from academic texts automatically |
+| [concept-map-generator](./../../productivity/concept-map-generator/SKILL.md) | Generate structured concept maps from academic texts automatically |
 | [graphiti-guide](./../graphiti-guide/SKILL.md) | Build real-time knowledge graphs for AI agents using Graphiti by Zep |
 | [knowledge-graph-construction](./../knowledge-graph-construction/SKILL.md) | Build research knowledge graphs for literature synthesis and RAG systems |
 | [notero-zotero-notion-guide](./notero-zotero-notion-guide/SKILL.md) | Sync Zotero references and annotations to Notion databases |
