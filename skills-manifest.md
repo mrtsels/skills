@@ -1,6 +1,6 @@
 # Skills Manifest
 
-SSOT 目录 `~/.agents/skills/` 的 skill 清单（共 260 个，含 symlink 替身）。
+SSOT 目录 `~/.agents/skills/` 的 skill 清单（共 245 个，含 symlink 替身与 latex-skills 聚合包）。
 Skill 内容不入库（见 .gitignore），仅维护清单。
 
 - 生成时间: 2026-08-06
@@ -14,7 +14,6 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - academic-study-methods
 - academic-tone-guide
 - academic-translation-guide
-- academic-writing-latex
 - academic-writing-refiner
 - action-research-guide
 - agent-reach
@@ -37,9 +36,7 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - arxiv-api
 - arxiv-batch-reporting
 - arxiv-cli-tools
-- arxiv-latex-source
 - arxiv-paper-processor
-- arxiv-preprint-template
 - assessment-design-guide
 - astrophysics-data-guide
 - auto-deep-research-guide
@@ -48,7 +45,6 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - autonomous-agents-papers-guide
 - bash-cli-patterns
 - bayesian-statistics-guide
-- beamer-presentation-guide
 - best-practices
 - brandkit
 - churn-autopsy
@@ -138,14 +134,7 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - knowledge-graph-construction
 - knowledge-graph-skills
 - large-document-reader
-- latex-debugging
-- latex-drawing-collection
-- latex-drawing-guide
-- latex-ecosystem-guide
-- latex-ocr-guide
 - latex-skills
-- latex-templates-collection
-- latex-translation-guide
 - latte-review-guide
 - lecture-notes
 - linear-algebra-applications
@@ -157,8 +146,6 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - markdown-math
 - market-analysis-guide
 - math-skills
-- math-typesetting-guide
-- md-to-pdf-academic
 - meeting-intelligence
 - meeting-notes
 - meeting-to-tasks
@@ -183,8 +170,6 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - open-computer-use-mcp
 - open-researcher-guide
 - open-science-guide
-- overleaf-cli-guide
-- overleaf-collaboration-guide
 - pandas-data-wrangling
 - paper-critique-framework
 - paper-parse-guide
