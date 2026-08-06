@@ -9,7 +9,7 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 
 | Skill | Description |
 |-------|-------------|
-| [handwriting-recognition-guide](./../../data-science/ocr-document-skills/handwriting-recognition-guide/SKILL.md) | Apply handwriting OCR to digitize historical and archival documents |
+| [handwriting-recognition-guide](./../ocr-document-skills/handwriting-recognition-guide/SKILL.md) | Apply handwriting OCR to digitize historical and archival documents |
 | [latex-ocr-guide](./../../latex-skills/latex-ocr-guide/SKILL.md) | Extract and convert mathematical formulas from images and PDFs to LaTeX code |
 | [latex-translation-guide](./../../latex-skills/latex-translation-guide/SKILL.md) | Translate LaTeX documents preserving math formulas and structure |
 | [multilingual-research-guide](./multilingual-research-guide/SKILL.md) | Strategies for translating academic papers while preserving technical accuracy |

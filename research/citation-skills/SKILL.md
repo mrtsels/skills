@@ -9,7 +9,7 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 
 | Skill | Description |
 |-------|-------------|
-| [academic-citation-manager](./../../academic/academic-citation-manager/SKILL.md) | Manage academic citations across BibTeX, APA, MLA, and Chicago formats |
+| [academic-citation-manager](./../../paper/academic-citation-manager/SKILL.md) | Manage academic citations across BibTeX, APA, MLA, and Chicago formats |
 | [bibtex-management-guide](./bibtex-management-guide/SKILL.md) | Clean, format, deduplicate, and manage BibTeX bibliography files for LaTeX |
 | [citation-assistant-skill](./../citation-assistant-skill/SKILL.md) | Claude Code skill for citation workflow via OpenAlex and CrossRef |
 | [citation-style-guide](./../citation-style-guide/SKILL.md) | APA, MLA, Chicago citation format guide with CSL configuration |

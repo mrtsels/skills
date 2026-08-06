@@ -24,3 +24,5 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 | [responsible-ai-guide](./responsible-ai-guide/SKILL.md) | Resources for trustworthy, fair, and ethical AI research |
 | [tensorflow-guide](./tensorflow-guide/SKILL.md) | TensorFlow best practices for tf.function, GPU memory, and deployment |
 | [transformer-architecture-guide](./transformer-architecture-guide/SKILL.md) | Guide to Transformer architectures for NLP and computer vision |
+| [ml-web-demo](./ml-web-demo/SKILL.md) | >- |
+| [training-pipeline-debugging](./training-pipeline-debugging/SKILL.md) | Use when ML training converges (loss decreases) but evaluation metrics are worse than a tr |

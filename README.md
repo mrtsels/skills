@@ -27,12 +27,7 @@
 > 生成时间: 2026-08-06。bundle 子 skill 通过其索引 SKILL.md 访问。
 
 ### academic
-- academic-citation-manager
-- academic-cv-builder
 - academic-study-methods
-- academic-tone-guide
-- automated-review-guide
-- cuhk-poster-latex
 - grad-school-guide
 - internship-report
 ### agent-patterns
@@ -113,8 +108,7 @@
 - **code-exec-skills**（bundle: google-colab-guide, kaggle-api-guide, r-reproducibility-guide, sandbox-execution-guide）
 - **data-wrangling-skills**（bundle: astrophysics-data-guide, csv-data-analyzer, data-cleaning-pipeline, data-cog-guide, data-collection-automation, json-data-visualizer, jupyter-live-kernel, jupyter-notebook-guide, pandas-data-wrangling, python-dataviz-guide, python-reproducibility-guide）
 - **math-skills**（bundle: lean-theorem-proving-guide, oeis-api, symbolic-computation-guide, topology-data-analysis）
-- **ml-engineering-skills**（bundle: ai-model-benchmarking, computer-vision-guide, huggingface-api, huggingface-inference-guide, llm-evaluation-guide, llm-from-scratch-guide, ml-experiment-tracker, ml-pipeline-guide, nlp-toolkit-guide, pytorch-guide, pytorch-lightning-guide, quantum-computing-guide, responsible-ai-guide, tensorflow-guide, transformer-architecture-guide）
-- **ocr-document-skills**（bundle: handwriting-recognition-guide, pdf-records-extraction, pdf-to-readable-markdown, vision-chunk-ocr）
+- **ml-engineering-skills**（bundle: ai-model-benchmarking, computer-vision-guide, huggingface-api, huggingface-inference-guide, llm-evaluation-guide, llm-from-scratch-guide, ml-experiment-tracker, ml-pipeline-guide, ml-web-demo, nlp-toolkit-guide, pytorch-guide, pytorch-lightning-guide, quantum-computing-guide, responsible-ai-guide, tensorflow-guide, training-pipeline-debugging, transformer-architecture-guide）
 - **statistics-skills**（bundle: bayesian-statistics-guide, data-anomaly-detection, linear-algebra-applications, modeling-strategy-guide, numerical-methods-guide, power-analysis-guide, python-causality-guide）
 ### devops
 - aesculap-setup
@@ -138,6 +132,7 @@
 - a-stock-paper-trade
 - announcement-search
 - financial-data-provisioning
+- financial-market-research
 - hithink-astock-selector
 - hithink-fund-query
 - hithink-industry-query
@@ -146,9 +141,12 @@
 - multi-factor-strategy
 - news-search
 - quant-factor-screener
+- quant-lecture-notes
+- quant-research-backtesting
 - quantitative-finance-guide
 - report-search
 - tonghuashun
+- web-sourced-market-brief
 - wechat-article-search
 ### frontend
 - code-flow-visualizer
@@ -172,6 +170,7 @@
 - arxiv-preprint-template
 - beamer-presentation-guide
 - bibliography-management-guide
+- cuhk-poster-latex
 - latex-debugging
 - latex-drawing-collection
 - latex-drawing-guide
@@ -193,6 +192,7 @@
 - obsidian
 - obsidian-citation-guide
 - obsidian-zotero-guide
+- summarize-slides
 - zotero-actions-tags-guide
 - zotero-addon-market-guide
 - zotero-ai-butler-guide
@@ -208,10 +208,13 @@
 - zotero-scholar-guide
 - zotero-style-guide
 ### paper
+- academic-citation-manager
 - academic-paper-summarizer
+- academic-tone-guide
 - ai-agent-papers-guide
 - ai-security-papers-guide
 - anomaly-detection-papers-guide
+- automated-review-guide
 - autonomous-agents-papers-guide
 - code-llm-papers-guide
 - conference-paper-template
@@ -252,7 +255,6 @@
 - finance-deck-build
 - financial-report-docx-update
 - fitness-consultation
-- ml-web-demo
 - notion
 - ocr-and-documents
 - officecli
@@ -263,16 +265,12 @@
 - petdex
 - powerpoint
 - pptx
-- quant-lecture-notes
-- quant-research-backtesting
 - roi-calculator
 - saas-replacement-planner
 - scanned-pdf-ocr
 - social-media-clients
 - sow-generator
-- summarize-slides
 - tencent-docs
-- training-pipeline-debugging
 - tui-widgets
 - weekly-business-report
 - xlsx
@@ -281,6 +279,7 @@
 - **document-skills**（bundle: docsgpt-guide, grobid-pdf-parsing）
 - **find-skills**（bundle）
 - **meeting-skills**（bundle: meeting-intelligence, meeting-notes, meeting-to-tasks）
+- **ocr-document-skills**（bundle: handwriting-recognition-guide, pdf-records-extraction, pdf-to-readable-markdown, vision-chunk-ocr）
 - **ocr-translate-skills**（bundle: multilingual-research-guide）
 ### research
 - action-research-guide
@@ -306,7 +305,6 @@
 - datagen-research-guide
 - dataset-finder-guide
 - deep-searcher-guide
-- financial-market-research
 - google-scholar-guide
 - google-scholar-scraper
 - graphiti-guide
@@ -324,7 +322,6 @@
 - open-science-guide
 - repository-harvesting-guide
 - research-workflow-automation
-- web-sourced-market-brief
 - zlib-ebook-download
 - **automation-skills**（bundle: aim-experiment-guide, kedro-pipeline-guide, mle-agent-guide, rd-agent-guide）
 - **citation-skills**（bundle: bibtex-management-guide, jabref-reference-guide, jasminum-zotero-guide, mendeley-api, onecite-reference-guide, papersgpt-zotero-guide, papis-cli-guide, reference-manager-comparison, zotero-api, zotero-gpt-guide, zotfile-attachment-guide）
@@ -335,6 +332,7 @@
 - **research-report-skills**（bundle: quant-research-report, research-visit-memo, structured-research-report, technical-research-report）
 - **search-skills**（bundle: baidu-scholar-guide, base-academic-search, biorxiv-api, boolean-search-guide, chatpaper-guide, citeseerx-api, deep-literature-search, eric-education-api, europe-pmc-api, findpapers-guide, ieee-xplore-api, lens-scholarly-api, mesh-terms-guide, open-library-api, open-semantic-search-guide, openaire-api, openalex-api, plos-open-access-api, pubmed-api, scielo-api, semantic-scholar-api, share-research-api, systematic-search-strategy, worldcat-search-api）
 ### resume
+- academic-cv-builder
 - application-form-filler
 - career-changer-translator
 - cold-email-writer
@@ -383,6 +381,7 @@
 - arxiv-preprint-template
 - beamer-presentation-guide
 - bibliography-management-guide
+- cuhk-poster-latex
 - latex-debugging
 - latex-drawing-collection
 - latex-drawing-guide
