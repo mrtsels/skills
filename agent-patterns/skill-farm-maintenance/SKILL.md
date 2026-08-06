@@ -14,6 +14,18 @@ Trigger: user asks to 整理/组织/归位 the skill library, or anything touchi
 - `~/.claude/skills/` — symlink farm → `.agents` (flat names; categorized skills link to their category path, e.g. `../../.agents/skills/productivity/docx`).
 - Pre-flip layout (real content in `.hermes`, stand-ins in `.agents`) is OBSOLETE. Older skills may still describe it — cross-check the filesystem and `git log` before acting on them.
 
+## skill_manage (agent tool) limitations — verified 2026-08-06
+
+`skill_manage` resolves skills via `_find_skill()` → `Path.rglob("SKILL.md")`, which does NOT follow symlinked dirs (Python 3.13). Consequences in the farm architecture:
+
+- **patch/edit/delete/write_file/remove_file on ANY farm skill** (shell-internal or top-level flat symlink) → error `Skill '<name>' not found in active profile`. `skill_view` still works (uses `os.walk(followlinks=True)`).
+- **create → writes a REAL dir** to `~/.hermes/skills/<cat>/<name>` (drift). Must be moved to SSOT + replaced with a relative symlink.
+
+Workaround:
+- **Revise existing skills: use file tools** (`read_file`/`patch`/`write_file`) on the real path `~/.agents/skills/<cat>/<name>/…` (writing through the farm symlink also lands in SSOT). Never rely on skill_manage for edits.
+- **New skills:** `skill_manage(create)` then immediately move to SSOT + symlink (Maintenance workflow steps 2–3), or write the file directly into `~/.agents/skills/<cat>/` and symlink.
+- Upstream fix would be `rglob("SKILL.md", recurse_symlinks=True)` (Py3.13) or `os.walk(followlinks=True)` in `_find_skill`; don't local-patch `~/.hermes/hermes-agent` (wiped/stashed on `hermes update`).
+
 ## Maintenance workflow
 
 1. Backup first: `cp -R` affected dirs → `/tmp/skill-reorg-backup-<ts>/`. Ops are destructive (rm -rf real dirs); user wants recoverable.
