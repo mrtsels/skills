@@ -16,6 +16,6 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 | [datagen-research-guide](./../../research/datagen-research-guide/SKILL.md) | AI-driven multi-agent research assistant for end-to-end studies |
 | [kedro-pipeline-guide](./kedro-pipeline-guide/SKILL.md) | Build reproducible data science pipelines with Kedro for research projects |
 | [mle-agent-guide](./mle-agent-guide/SKILL.md) | Intelligent companion for ML engineering with arXiv integration |
-| [paper-to-agent-guide](./../../paper/paper-to-agent-guide/SKILL.md) | Transform research papers into interactive AI agents for exploration |
+| [paper-reading-workflow](./../../paper/paper-reading-workflow/SKILL.md) | Transform research papers into interactive AI agents for exploration |
 | [rd-agent-guide](./rd-agent-guide/SKILL.md) | Microsoft AI-driven R&D agent for automated data and model development |
 | [research-workflow-automation](./../research-workflow-automation/SKILL.md) | Automate repetitive research tasks with pipelines, schedulers, and scripting |

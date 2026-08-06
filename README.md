@@ -146,21 +146,17 @@
 ### latex
 - academic-writing-latex
 - arxiv-latex-source
-- arxiv-preprint-template
 - beamer-presentation-guide
 - bibliography-management-guide
 - latex-debugging
-- latex-drawing-collection
 - latex-drawing-guide
 - latex-ecosystem-guide
 - latex-ocr-guide
 - latex-templates-collection
 - latex-translation-guide
 - math-typesetting-guide
-- overleaf-cli-guide
-- overleaf-collaboration-guide
+- overleaf-guide
 - tex-render-guide
-- tikz-diagrams-guide
 ### mcp
 - native-mcp
 - open-computer-use-mcp
@@ -191,10 +187,8 @@
 - ai-agent-papers-guide
 - ai-security-papers-guide
 - anomaly-detection-papers-guide
-- automated-review-guide
 - autonomous-agents-papers-guide
 - code-llm-papers-guide
-- conference-paper-template
 - conference-proceedings-guide
 - deep-learning-papers-guide
 - gaussian-splatting-papers-guide
@@ -202,17 +196,13 @@
 - graphical-abstract-guide
 - llm-aiops-guide
 - markdown-academic-guide
-- paper-critique-framework
-- paper-parse-guide
-- paper-reading-assistant
+- paper-reading-workflow
 - paper-recommendation-guide
-- paper-to-agent-guide
 - papers-we-love-guide
-- publication-figures-guide
 - **academic-writing-skills**（bundle: abstract-writing-guide, discussion-writing-guide, ml-paper-writing, research-paper-writer, response-to-reviewers, thesis-writing-guide）
 - **composition-skills**（bundle: introduction-writing-guide, literature-review-writing, methods-section-guide, scientific-writing-guide, scientific-writing-resources, scientific-writing-wrapper）
-- **paper-review-skills**（bundle: peer-review-guide, rebuttal-writing-guide, review-response-guide, scientify-write-review-paper）
-- **templates-skills**（bundle: elegant-paper-template, novathesis-guide, scientific-article-pdf, sjtuthesis-guide, thesis-template-guide, thuthesis-guide）
+- **paper-review-skills**（bundle: automated-review-guide, paper-critique-framework, peer-review-guide, rebuttal-writing-guide, review-response-guide, scientify-write-review-paper）
+- **templates-skills**（bundle: conference-paper-template, elegant-paper-template, novathesis-guide, publication-figures-guide, scientific-article-pdf, sjtuthesis-guide, thesis-template-guide, thuthesis-guide）
 - **writing-polish-skills**（bundle: academic-translation-guide, academic-writing-refiner, ai-writing-humanizer, grammar-checker-guide, paper-polish-guide）
 ### productivity
 - ai-readiness-assessment
@@ -300,31 +290,19 @@
 - **search-skills**（bundle: baidu-scholar-guide, base-academic-search, biorxiv-api, boolean-search-guide, chatpaper-guide, citeseerx-api, deep-literature-search, eric-education-api, europe-pmc-api, findpapers-guide, ieee-xplore-api, lens-scholarly-api, mesh-terms-guide, open-library-api, open-semantic-search-guide, openaire-api, openalex-api, plos-open-access-api, pubmed-api, scielo-api, semantic-scholar-api, share-research-api, systematic-search-strategy, worldcat-search-api）
 ### resume
 - academic-cv-builder
-- application-form-filler
 - career-changer-translator
-- cold-email-writer
-- cover-letter-generator
-- creative-portfolio-resume
-- executive-resume-writer
 - interview-prep-generator
+- job-application-writing
 - job-description-analyzer
 - linkedin-profile-optimizer
 - offer-comparison-analyzer
 - portfolio-case-study-writer
 - reference-list-builder
-- research-entry-from-codebase
 - resume-ats-optimizer
-- resume-bullet-writer
-- resume-formatter
+- resume-content-writer
 - resume-latex-workflow
-- resume-quantifier
-- resume-section-builder
-- resume-tailor
-- resume-version-manager
-- resume-writing-style
-- resume-zh-bullet-style
+- resume-role-optimizer
 - salary-negotiation-prep
-- tech-resume-optimizer
 ### workflow
 - demo-feedback-to-code
 - document-analysis-workflow
@@ -340,21 +318,17 @@
 ### latex
 - academic-writing-latex
 - arxiv-latex-source
-- arxiv-preprint-template
 - beamer-presentation-guide
 - bibliography-management-guide
 - latex-debugging
-- latex-drawing-collection
 - latex-drawing-guide
 - latex-ecosystem-guide
 - latex-ocr-guide
 - latex-templates-collection
 - latex-translation-guide
 - math-typesetting-guide
-- overleaf-cli-guide
-- overleaf-collaboration-guide
+- overleaf-guide
 - tex-render-guide
-- tikz-diagrams-guide
 ## 命名规范
 
 1. **一律 kebab-case**：小写 + 连字符，禁下划线/驼峰（`pdf-extraction-guide` ✓，`pdfExtraction` ✗）

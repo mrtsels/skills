@@ -12,7 +12,7 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 | [google-colab-guide](./google-colab-guide/SKILL.md) | Run and manage Google Colab notebooks for Python and ML research |
 | [jupyter-notebook-guide](./../data-wrangling-skills/jupyter-notebook-guide/SKILL.md) | Best practices for computational research notebooks with reproducible workflows |
 | [kaggle-api-guide](./kaggle-api-guide/SKILL.md) | Download datasets, manage competitions and notebooks via Kaggle API |
-| [overleaf-cli-guide](./../../latex/overleaf-cli-guide/SKILL.md) | Sync and manage Overleaf LaTeX projects from the command line |
+| [overleaf-guide](./../../latex/overleaf-guide/SKILL.md) | Sync and manage Overleaf LaTeX projects from the command line |
 | [python-reproducibility-guide](./../data-wrangling-skills/python-reproducibility-guide/SKILL.md) | Reproducible Python environments, notebooks, and literate programming |
 | [r-reproducibility-guide](./r-reproducibility-guide/SKILL.md) | Create reproducible research workflows with R and RMarkdown/Quarto |
 | [sandbox-execution-guide](./sandbox-execution-guide/SKILL.md) | Secure sandboxed code execution environments for reproducible research computing |

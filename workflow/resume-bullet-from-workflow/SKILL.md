@@ -46,7 +46,7 @@ Action verb options:
 
 ### Step 4 — Apply Style Rules (EN)
 
-Run through resume-writing-style rules:
+Run through resume-content-writer rules:
 1. Past-tense active verb? ✅
 2. No a/an/the? ✅ (keep proper nouns: "the S&P 500")
 3. No passive voice? ✅

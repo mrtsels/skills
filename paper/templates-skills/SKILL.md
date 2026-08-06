@@ -9,9 +9,9 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 
 | Skill | Description |
 |-------|-------------|
-| [arxiv-preprint-template](./../../latex/arxiv-preprint-template/SKILL.md) | LaTeX template for arXiv preprints in NIPS/NeurIPS style format |
+| [latex-templates-collection](./../../latex/latex-templates-collection/SKILL.md) | LaTeX template for arXiv preprints in NIPS/NeurIPS style format |
 | [beamer-presentation-guide](./../../latex/beamer-presentation-guide/SKILL.md) | Guide to creating academic presentations with LaTeX Beamer |
-| [conference-paper-template](./../conference-paper-template/SKILL.md) | Templates and formatting guides for major academic conference submissions |
+| [conference-paper-template](./conference-paper-template/SKILL.md) | Templates and formatting guides for major academic conference submissions |
 | [elegant-paper-template](./elegant-paper-template/SKILL.md) | Beautiful LaTeX template for working papers and technical reports |
 | [graphical-abstract-guide](./../graphical-abstract-guide/SKILL.md) | Create SVG graphical abstracts for journal paper submissions |
 | [novathesis-guide](./novathesis-guide/SKILL.md) | LaTeX thesis template supporting multiple universities and formats |
@@ -20,3 +20,4 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 | [thesis-template-guide](./thesis-template-guide/SKILL.md) | Set up LaTeX templates for PhD and Master's thesis documents |
 | [thesis-writing-guide](./../academic-writing-skills/thesis-writing-guide/SKILL.md) | Templates, formatting rules, and strategies for thesis and dissertation writing |
 | [thuthesis-guide](./thuthesis-guide/SKILL.md) | Write Tsinghua University theses using the ThuThesis LaTeX template |
+| [publication-figures-guide](./publication-figures-guide/SKILL.md) | Create journal-quality scientific figures with proper styling and accessibility |

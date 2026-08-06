@@ -14,7 +14,7 @@ Select the skill matching the user's need, then `read` its SKILL.md.
 | [grobid-pdf-parsing](./grobid-pdf-parsing/SKILL.md) | Extract structured text, metadata, and references from academic PDFs |
 | [large-document-reader](./../../research/large-document-reader/SKILL.md) | Split and read long documents chapter-by-chapter for structured analysis |
 | [markdown-academic-guide](./../../paper/markdown-academic-guide/SKILL.md) | Write academic papers in Markdown with Pandoc for multi-format output |
-| [paper-parse-guide](./../../paper/paper-parse-guide/SKILL.md) | Deep dual-mode reading of academic papers from PDF or URL sources |
+| [paper-reading-workflow](./../../paper/paper-reading-workflow/SKILL.md) | Deep dual-mode reading of academic papers from PDF or URL sources |
 | [pdf-extraction-guide](./../pdf-extraction-guide/SKILL.md) | PDF parsing, text extraction, and document format conversion |
 | [zotero-addon-market-guide](./../../note-taking/zotero-addon-market-guide/SKILL.md) | Plugin marketplace and discovery platform for Zotero |
 | [zotero-night-theme-guide](./../../note-taking/zotero-night-theme-guide/SKILL.md) | Dark mode theme plugin for Zotero reference manager |
