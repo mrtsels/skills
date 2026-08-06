@@ -1,0 +1,5 @@
+# Ignore everything except the manifest files
+*
+!.gitignore
+!README.md
+!skills-manifest.md
