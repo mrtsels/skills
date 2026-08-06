@@ -1,4 +1,4 @@
-# Ignore everything except the manifest files and skill stand-ins (symlinks)
+# Ignore everything except the manifest files, skill stand-ins (symlinks), and the latex-skills bundle
 *
 !.gitignore
 !README.md
@@ -17,10 +17,7 @@
 !holographic-memory-migration
 !humanizer
 !install-agent-cli-tool
-!install-binary-from-github-releases
-!install-skill-from-github
 !jupyter-live-kernel
-!latex-skills
 !lecture-notes
 !markdown-math
 !meeting-notes
@@ -54,3 +51,7 @@
 !wechat-push-message
 !writing-plans
 !zlib-ebook-download
+
+# latex-skills bundle: tracked in full
+!latex-skills/
+!latex-skills/**

@@ -1,6 +1,6 @@
 # Skills Manifest
 
-SSOT 目录 `~/.agents/skills/` 的 skill 清单（共 245 个，含 symlink 替身）。
+SSOT 目录 `~/.agents/skills/` 的 skill 清单（共 243 个，含 symlink 替身）。
 Skill 内容不入库（见 .gitignore），仅维护清单。
 
 - 生成时间: 2026-08-06
@@ -126,8 +126,6 @@ Skill 内容不入库（见 .gitignore），仅维护清单。
 - imagegen-frontend-web
 - industrial-brutalist-ui
 - install-agent-cli-tool
-- install-binary-from-github-releases
-- install-skill-from-github
 - json-data-visualizer
 - jupyter-live-kernel
 - jupyter-notebook-guide
