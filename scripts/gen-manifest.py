@@ -70,7 +70,7 @@ def main():
         return 1
     txt = pat.sub(lambda m: m.group(1) + new_block + m.group(2), txt)
     open(README, "w", encoding="utf-8").write(txt)
-    print(f"README.md 清单已更新（{len(manifest)} 行）")
+    print(f"README.md 清单已更新（{len(manifest):,} 字符）")
 
 
 if __name__ == "__main__":
