@@ -20,7 +20,7 @@
 └── ego-browser         # 唯一 symlink（指向 /Applications/ego lite.app）
 ```
 
-分类：`academic` `agent-patterns` `apple` `automation` `autonomous-ai-agents` `creative` `data-science` `devops` `email` `finance` `github` `infrastructure` `latex-skills` `mcp` `note-taking` `paper` `productivity` `research` `resume` `software-development` `workflow` `writing`
+分类：`academic` `agent-patterns` `apple` `automation` `autonomous-ai-agents` `backend` `coding` `creative` `data-science` `devops` `email` `finance` `frontend` `github` `infrastructure` `latex-skills` `mcp` `note-taking` `paper` `productivity` `research` `resume` `workflow` `writing`
 
 ## Skill 清单
 
