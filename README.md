@@ -29,7 +29,6 @@
 ### academic
 - academic-study-methods
 - grad-school-guide
-- internship-report
 ### agent-patterns
 - knowledge-organization
 - skill-farm-maintenance
@@ -39,24 +38,17 @@
 - apple-native-cli
 - apple-notes
 - apple-reminders
-- internal-device-access
 - macos-apple-intelligence
 - macos-computer-use
 - macos-git-proxy-troubleshoot
-- macos-network-diagnostics
-- macos-smb-access
 - macos-storage-management
 ### automation
 - cron-agent-flow
-- deepseek-cost-tracking
-- duo-sso-automation
-- email-automation
 - wechat-push-message
 ### autonomous-ai-agents
 - agent-reach
 - coding-agents
 - computer-use-workflow
-- cusis-login
 - dynamic-workflow
 - graphify
 - hermes-agent
@@ -113,24 +105,14 @@
 - aesculap-setup
 - apple-container-build
 - ccx-proxy-setup
-- cuhk-duo-bypass
 - docker-logging
 - docker-production-deployment
 - hermes-s6-container-supervision
 - kanban-orchestrator
-- kylin-vm-deployment
 - offline-docker-deployment
 - webhook-subscriptions
-- windows-ssh-setup
-- windows-thinkpad
-- yuecai-scanner-download
 ### email
-- agently-mail
-- agently-mail-formatting
-- coremail-imap
-- email-triage
 - himalaya
-- imap-attachment-download
 ### finance
 - a-stock-paper-trade
 - announcement-search
@@ -144,7 +126,6 @@
 - multi-factor-strategy
 - news-search
 - quant-factor-screener
-- quant-lecture-notes
 - quant-research-backtesting
 - quantitative-finance-guide
 - report-search
@@ -154,12 +135,10 @@
 ### frontend
 - code-flow-visualizer
 - d3-visualization-guide
-- extjs-api-discovery
 - hermes-agent-dashboard-install
 - inspecting-hermes-desktop-dom
 - local-dev-proxy
 - playwright-performance-optimization
-- playwright-spa-automation
 - vanilla-js-spa-patterns
 ### github
 - github
@@ -170,7 +149,6 @@
 - arxiv-preprint-template
 - beamer-presentation-guide
 - bibliography-management-guide
-- cuhk-poster-latex
 - latex-debugging
 - latex-drawing-collection
 - latex-drawing-guide
@@ -239,7 +217,6 @@
 ### productivity
 - ai-readiness-assessment
 - architecture-design-guide
-- asset-pool-admission
 - churn-autopsy
 - client-health-dashboard
 - client-proposal-generator
@@ -250,9 +227,6 @@
 - document-sanitization
 - docx
 - docx-content-patching
-- docx-edit-rules
-- finance-deck-build
-- financial-report-docx-update
 - fitness-consultation
 - notion
 - ocr-and-documents
@@ -273,7 +247,6 @@
 - tui-widgets
 - weekly-business-report
 - xlsx
-- xlsx-contract-data-fill
 - zlib-ebook-download
 - **diagram-skills**（bundle: excalidraw-diagram-guide, kroki-diagram-api, mermaid-architect-guide, mermaid-diagram-guide, plantuml-guide, scientific-illustration-guide, tldraw-whiteboard-guide）
 - **document-skills**（bundle: docsgpt-guide, grobid-pdf-parsing）
@@ -323,7 +296,7 @@
 - **fulltext-skills**（bundle: bioc-pmc-api, core-api-guide, dataverse-api, doaj-api, hal-archive-api, institutional-repository-guide, interlibrary-loan-guide, osf-api, pmc-ftp-bulk-download, pmc-oai-api, preprint-servers-guide, unpaywall-api）
 - **humanities-skills**（bundle: digital-humanities-guide, ethical-philosophy-guide, history-research-guide, philosophy-research-guide, political-history-guide）
 - **knowledge-graph-skills**（bundle: graphiti-guide, knowledge-graph-construction, notero-zotero-notion-guide, ontology-design-guide, openspg-guide, rag-methodology-guide, zotero-markdb-connect-guide）
-- **research-report-skills**（bundle: quant-research-report, research-visit-memo, structured-research-report, technical-research-report）
+- **research-report-skills**（bundle: quant-research-report, structured-research-report, technical-research-report）
 - **search-skills**（bundle: baidu-scholar-guide, base-academic-search, biorxiv-api, boolean-search-guide, chatpaper-guide, citeseerx-api, deep-literature-search, eric-education-api, europe-pmc-api, findpapers-guide, ieee-xplore-api, lens-scholarly-api, mesh-terms-guide, open-library-api, open-semantic-search-guide, openaire-api, openalex-api, plos-open-access-api, pubmed-api, scielo-api, semantic-scholar-api, share-research-api, systematic-search-strategy, worldcat-search-api）
 ### resume
 - academic-cv-builder
@@ -338,7 +311,6 @@
 - linkedin-profile-optimizer
 - offer-comparison-analyzer
 - portfolio-case-study-writer
-- project-to-resume
 - reference-list-builder
 - research-entry-from-codebase
 - resume-ats-optimizer
@@ -356,11 +328,7 @@
 ### workflow
 - demo-feedback-to-code
 - document-analysis-workflow
-- fuji-xerox-scanner-access
-- post-investment-data-maintenance
-- quant-academy-task-workflow
 - resume-bullet-from-workflow
-- yuecai-doc-maintenance
 ### writing
 - humanizer
 - markdown-math
@@ -375,7 +343,6 @@
 - arxiv-preprint-template
 - beamer-presentation-guide
 - bibliography-management-guide
-- cuhk-poster-latex
 - latex-debugging
 - latex-drawing-collection
 - latex-drawing-guide
