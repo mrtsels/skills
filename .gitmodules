@@ -1,0 +1,3 @@
+[submodule "coding/rail-cli"]
+	path = coding/rail-cli
+	url = https://github.com/mrtsels/rail-cli.git
