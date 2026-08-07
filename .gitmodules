@@ -1,3 +1,6 @@
 [submodule "coding/rail-cli"]
 	path = coding/rail-cli
 	url = https://github.com/mrtsels/rail-cli.git
+[submodule "coding/trading-agents"]
+	path = coding/trading-agents
+	url = https://github.com/mrtsels/trading-agents.git
